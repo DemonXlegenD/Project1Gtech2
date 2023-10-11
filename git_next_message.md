@@ -1,3 +1,4 @@
-ENH: Amélioration des types
+ENH: Début de la boucle de jeu
 
--Amélioration des types pour le joueur
+-Début de la boucle de jeu
+-Ajout des teams

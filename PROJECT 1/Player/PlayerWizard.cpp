@@ -1,8 +1,6 @@
 #include "PlayerWizard.h"
 #include <vector>
 
-PlayerWizard::PlayerWizard(const std::string n, int pv_max, int attack_max, int attack, int defense_max, int defense, int mana_max) : PlayerAbstract(n, pv_max, attack_max, attack, defense_max, defense, mana_max, std::string("Wizard")) {}
-
 const std::vector<std::string> actions = {
 	"Avadacadavra",
 	"Mana shield",
@@ -17,19 +15,19 @@ int PlayerWizard::useAvadacadavra() {
 }
 
 void PlayerWizard::useManaShield() {
-std:cout << "Mana shield Used\n";
+std::cout << "Mana shield Used\n";
 }
 
 void PlayerWizard::useAtkBuff() {
-std:cout << "Attack Buffed\n";
+std::cout << "Attack Buffed\n";
 }
 
 void PlayerWizard::useAtkDebuff() {
-std:cout << "Ennemy Attack Debuffed\n";
+std::cout << "Ennemy Attack Debuffed\n";
 }
 
 void PlayerWizard::surrender() {
-std:cout << "You have surrendered the fight\n";
+std::cout << "You have surrendered the fight\n";
 }
 
 void useActions(int index) {
@@ -40,3 +38,6 @@ void useActions(int index) {
 		std::cout << "Indice d'action invalide." << std::endl;
 	}
 }
+
+PlayerWizard::PlayerWizard(const std::string n, int pv_max, int attack_max, int attack, int defense_max, int defense, int mana_max) : PlayerAbstract(n, pv_max, attack_max, attack, defense_max, defense, mana_max, std::string("Wizard")) {}
+
