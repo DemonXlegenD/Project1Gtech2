@@ -1,3 +1,3 @@
-FIX: Branche Victor
+FIX: Réparation des fichiers
 
--Déplacement code branche victor
+-Réparations des fichiers après merge

@@ -18,18 +18,17 @@ public:
 		int mana_max
 	);
 
-	
-
-	
-
-private:
 	int useAvadacadavra();
 	void surrender();
 	void useManaShield();
 	void useAtkDebuff();
 	void useAtkBuff();
 
-	void useActions(int index)
-	Spell avadacadavra;
+	void useActions(int index);
+
+	
+
+private:
+	
 };
 
