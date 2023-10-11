@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="GameConfig.cpp" />
     <ClCompile Include="GameLoop.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="PlayerAbstract.cpp" />
     <ClCompile Include="Player\PlayerWarrior.cpp" />
     <ClCompile Include="Player\PlayerKnight.cpp" />
@@ -136,16 +137,19 @@
     <ClCompile Include="Player\PlayerWizard.cpp" />
     <ClCompile Include="PROJECT_1.cpp" />
     <ClCompile Include="Spell.cpp" />
+    <ClCompile Include="Team.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameLoop.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="PlayerAbstract.h" />
     <ClInclude Include="Player\PlayerWarrior.h" />
     <ClInclude Include="Player\PlayerKnight.h" />
     <ClInclude Include="Player\PlayerGuardian.h" />
     <ClInclude Include="Player\PlayerWizard.h" />
     <ClInclude Include="Spell.h" />
+    <ClInclude Include="Team.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
