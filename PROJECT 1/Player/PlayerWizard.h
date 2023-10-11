@@ -9,13 +9,16 @@ class PlayerWizard : public PlayerAbstract
 public:
 	
 	PlayerWizard(
+		const std::string id,
 		const std::string name,
-		int pv_max,
-		int attack_max,
+		int pvMax,
+		int attackMax,
 		int attack,
-		int defense_max,
+		int defenseMax,
 		int defense,
-		int mana_max
+		float speedMax,
+		float speed,
+		int manaMax
 	);
 
 	int useAvadacadavra();

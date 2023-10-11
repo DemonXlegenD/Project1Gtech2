@@ -2,21 +2,27 @@
 #include <vector>
 
 PlayerWizard::PlayerWizard(
+	const std::string id,
 	const std::string name,
-	int pv_max,
-	int attack_max,
+	int pvMax,
+	int attackMax,
 	int attack,
-	int defense_max,
+	int defenseMax,
 	int defense,
-	int mana_max
+	float speedMax,
+	float speed,
+	int manaMax
 ) : PlayerAbstract(
+	id,
 	name,
-	pv_max,
-	attack_max,
+	pvMax,
+	attackMax,
 	attack,
-	defense_max,
+	defenseMax,
 	defense,
-	mana_max,
+	speedMax,
+	speed,
+	manaMax,
 	std::string("Wizard")
 )
 {}
@@ -32,7 +38,7 @@ const std::vector<std::string> actions = {
 
 int PlayerWizard::useAvadacadavra() {
 
-	return attack_actuel * 2;
+	return attack * 2;
 }
 
 void PlayerWizard::useManaShield() {

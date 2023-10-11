@@ -12,11 +12,20 @@ Team GameConfig::getTeam2() {
 }
 
 std::vector<PlayerAbstract> GameConfig::getPlayers() {
-
+	quicksort(players, 0, players.size() - 1);
 	return players;
 }
-PlayerAbstract GameConfig::getPlayerById(int id) {
-	return players[id];
+PlayerAbstract* GameConfig::getPlayerById(std::string id) {
+	for (const PlayerAbstract& player : players) {
+		if (player.getId() == id) {
+			return const_cast<PlayerAbstract*>(&player);
+		}
+	}
+	return nullptr;
+}
+
+PlayerAbstract GameConfig::getPlayerByIndex(int index) {
+	return players[index];
 }
 
 size_t GameConfig::getNumberPlayers() {

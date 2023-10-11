@@ -68,13 +68,13 @@ std::string GameLoop::askName(std::string player) {
 	return name;
 }
 
-PlayerAbstract GameLoop::askType(std::string namePlayer) {
+PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 	std::string chosenType;
 	std::vector<TypeCombattantClass> combattants;
-	combattants.push_back({ "Magicien", PlayerWizard(namePlayer, 100, 50, 20, 10, 5, 500) });
-	combattants.push_back({ "Guerrier", PlayerWarrior(namePlayer, 100, 50, 20, 10, 5, 500) });
-	combattants.push_back({ "Chevalier", PlayerKnight(namePlayer, 100, 50, 20, 10, 5, 500) });
-	combattants.push_back({ "Gardien", PlayerGuardian(namePlayer, 100, 50, 20, 10, 5, 500) });
+	combattants.push_back({ "Magicien", PlayerWizard(idPlayer, namePlayer, 100, 50, 20, 10, 5, 1.0f, 0.6f, 500) });
+	combattants.push_back({ "Guerrier", PlayerWarrior(idPlayer, namePlayer, 100, 50, 20, 10, 5, 1.0f, 0.3f, 500) });
+	combattants.push_back({ "Chevalier", PlayerKnight(idPlayer, namePlayer, 100, 50, 20, 10, 5, 1.0f, 0.4f, 500) });
+	combattants.push_back({ "Gardien", PlayerGuardian(idPlayer, namePlayer, 100, 50, 20, 10, 5, 1.0f, 0.2f, 500) });
 
 	do {
 		std::cout << namePlayer << ", choisissez un type de combattant : " << std::endl;

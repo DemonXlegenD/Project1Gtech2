@@ -7,13 +7,18 @@ class PlayerGuardian : public PlayerAbstract
 
 public:
 
-	PlayerGuardian(const std::string n,
+	PlayerGuardian(
+		const std::string id,
+		const std::string name,
 		int pv_max,
 		int attack_max,
 		int attack,
 		int defense_max,
 		int defense,
-		int mana_max);
+		float speedMax,
+		float speed,
+		int mana_max
+	);
 
 
 	int useAvadacadavra();
