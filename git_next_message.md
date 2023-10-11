@@ -1,4 +1,3 @@
-ENH: Début de la boucle de jeu
+FIX: Branche Victor
 
--Début de la boucle de jeu
--Ajout des teams
+-Déplacement code branche victor
