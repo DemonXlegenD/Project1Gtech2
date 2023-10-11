@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Spell.h"
+#include <vector>
 
 class PlayerAbstract
 {
@@ -27,11 +28,18 @@ public:
 	void setLastSpellName(std::string spell_name);
 
 	void getDamage(int damage);
-	void getHealth(int damage);
+	void getHealth(int heal);
 
 	void afficherInfos();
 
 	void callUsedSpell(Spell usedSpell);
+
+	void getPlayerType(std::string typePlayer);
+
+	Spell useOffensive();
+	Spell useDefensive();
+	Spell useBuff();
+	Spell useUltimate();
 
 	~PlayerAbstract();
 

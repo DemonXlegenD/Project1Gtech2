@@ -12,6 +12,7 @@
 #include "GameLoop.h"
 
 
+
 int main()
 {
 	std::cout << "Nintendo!\n";
@@ -30,6 +31,20 @@ int main()
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 	player2.afficherInfos();
 	std::this_thread::sleep_for(std::chrono::seconds(1));
+
+	int actionTurn = 0;
+
+	while (player1.getPvActuel > 0 && player2.getPvActuel > 0) {
+		if (actionTurn === 0) {
+			std::cout << "Quel action souhaite faire " << player1.getName << ": \n";
+			for (int i = O; i < player1.) {
+				player1.
+			}
+		}
+		else {
+
+		}
+	}
 
 	return 0;
 }

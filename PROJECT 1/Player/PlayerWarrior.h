@@ -2,6 +2,7 @@
 #include "../PlayerAbstract.h"
 
 
+
 class PlayerWarrior : public PlayerAbstract
 {
 	using PlayerAbstract::PlayerAbstract;
@@ -14,12 +15,10 @@ public:
 		int attack,
 		int defense_max,
 		int defense,
-		int mana_max);
+		int mana_max,
+		);
 
-
-
-	int useAvadacadavra();
 
 private:
-
+	
 };
