@@ -14,6 +14,7 @@
 #include "Team.h"
 
 
+
 int main()
 {
 	std::cout << "Nintendo!\n";
@@ -66,6 +67,9 @@ int main()
 
 		break;
 	} while (config.getPlayerById(0).getPvActuel() > 0 && config.getPlayerById(1).getPvActuel() > 0);
+
+	int actionTurn = 0;
+
 
 	return 0;
 }

@@ -1,3 +1,3 @@
-ENH: Amélioration des types
+FIX: Branche Victor
 
--Amélioration des types pour le joueur
+-Déplacement code branche victor

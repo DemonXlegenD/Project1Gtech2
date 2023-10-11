@@ -23,6 +23,13 @@ public:
 	
 
 private:
+	int useAvadacadavra();
+	void surrender();
+	void useManaShield();
+	void useAtkDebuff();
+	void useAtkBuff();
+
+	void useActions(int index)
 	Spell avadacadavra;
 };
 

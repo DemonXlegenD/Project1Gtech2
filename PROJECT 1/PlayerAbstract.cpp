@@ -107,4 +107,23 @@ void PlayerAbstract::callUsedSpell(Spell usedSpell) {
 	std::cout << "Joueur " << name << " a utiliser le sort " << usedSpell.getName() << "." << std::endl;
 }
 
+
+Spell PlayerAbstract::useOffensive() {
+
+	return new Spell{ "Heavy Swing",attack_actuel,0 };
+
+}
+Spell PlayerAbstract::useDefensive() {
+
+	return { "Bloodwhetting",defense_actuel + defense_actuel * 1.2,100 };
+}
+Spell PlayerAbstract::useBuff() {
+
+	return { "Inner Release",attack_actuel + attack_actuel * 1.2,100 };
+}
+Spell PlayerAbstract::useUltimate() {
+
+	return { "Inner Chaos",attack_actuel * 2,200 };
+}
+
 PlayerAbstract::~PlayerAbstract() {}

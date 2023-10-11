@@ -16,7 +16,6 @@ public:
 		int mana_max);
 
 
-
 	int useAvadacadavra();
 
 private:

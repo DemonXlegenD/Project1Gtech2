@@ -53,7 +53,7 @@ std::string GameLoop::askName(std::string player) {
 		std::cin >> name;
 
 		// Vérification de la validité de la saisie (par exemple, si la longueur est supérieure à 3 caractères)
-		if (name.length() > 3) {
+		if (name.length() >= 3) {
 			std::cout << "Saisie valide : " << name << std::endl;
 			break;  // Sort de la boucle lorsque la saisie est valide
 		}
