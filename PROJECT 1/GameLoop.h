@@ -18,7 +18,7 @@ class GameLoop
 public:
 	GameLoop();
 	static std::string askName(std::string player);
-	static PlayerAbstract askType(std::string player, std::string namePlayer);
+	static PlayerAbstract askType(std::string namePlayer);
 	~GameLoop();
 };	
 

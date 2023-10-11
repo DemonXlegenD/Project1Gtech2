@@ -23,39 +23,32 @@ std::string GameLoop::askName(std::string player) {
 	return name;
 }
 
-PlayerAbstract GameLoop::askType(std::string player, std::string namePlayer) {
+PlayerAbstract GameLoop::askType(std::string namePlayer) {
 	std::string chosenType;
-	std::vector<TypeCombattantClass> types;
-	types.push_back({ "Magicien", PlayerWizard(namePlayer, 100, 50, 20, 10, 5, 500)});
-	types.push_back({ "Guerrier", PlayerWizard(namePlayer, 100, 50, 20, 10, 5, 500)});
-	types.push_back({ "Chevalier", PlayerWizard(namePlayer, 100, 50, 20, 10, 5, 500)});
-	types.push_back({ "Gardien", PlayerWizard(namePlayer, 100, 50, 20, 10, 5, 500)});
+	std::vector<TypeCombattantClass> combattants;
+	combattants.push_back({ "Magicien", PlayerWizard(namePlayer, 100, 50, 20, 10, 5, 500) });
+	combattants.push_back({ "Guerrier", PlayerWarrior(namePlayer, 100, 50, 20, 10, 5, 500) });
+	combattants.push_back({ "Chevalier", PlayerKnight(namePlayer, 100, 50, 20, 10, 5, 500) });
+	combattants.push_back({ "Gardien", PlayerGuardian(namePlayer, 100, 50, 20, 10, 5, 500) });
 
 	do {
-		std::cout << player << ", choisissez un type de combattant : " << std::endl;
+		std::cout << namePlayer << ", choisissez un type de combattant : " << std::endl;
 		int index = 1;
-		for (const TypeCombattantClass type : types) {
-			std::cout << index << "." << type.name << std::endl;
+		for (const TypeCombattantClass combattant : combattants) {
+			std::cout << index << "." << combattant.name << std::endl;
 			index++;
 		}
 
 		std::cin >> chosenType;
-
-
-		// Vérification de la validité de la saisie (par exemple, si la longueur est supérieure à 3 caractères)
-		if (type.length() > 3) {
-			std::cout << "Saisie valide : " << type << std::endl;
-			break;  // Sort de la boucle lorsque la saisie est valide
+		index = 1;
+		for (const TypeCombattantClass combattant : combattants) {
+			if (chosenType == combattant.name || chosenType == std::to_string(index)) {
+				return combattant.type;
+			}
+			index++;
 		}
-		else {
-			std::cout << "Saisie invalide. Réessayez." << std::endl;
-			// Efface le tampon d'entrée pour éviter des boucles infinies si l'utilisateur entre des caractères non valides
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		}
+		std::cout << "Saisie invalide. Réessayez." << std::endl;
 	} while (true);
-
-	return name;
 }
 
 GameLoop::~GameLoop() {}

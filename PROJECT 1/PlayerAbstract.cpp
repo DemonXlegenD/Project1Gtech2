@@ -8,7 +8,8 @@ PlayerAbstract::PlayerAbstract(
 	int attack = 5,
 	int defense_max = 10,
 	int defense = 5,
-	int mana_max = 500
+	int mana_max = 500,
+	std::string typePlayer = "Villageois"
 ) :
 	name(n),
 	pv_max(pv_max),
@@ -19,7 +20,8 @@ PlayerAbstract::PlayerAbstract(
 	defense_actuel(defense),
 	mana_max(mana_max),
 	mana_actuel(mana_max),
-	basic_spell(std::string("Attaque de base"), 30, 10)
+	basic_spell(std::string("Attaque de base"), 30, 10),
+	typePlayer(typePlayer)
 {}
 
 std::string PlayerAbstract::getName() const
@@ -88,7 +90,7 @@ void PlayerAbstract::setLastSpellName(std::string spell_name) {
 }
 
 void PlayerAbstract::afficherInfos() {
-	std::cout << "Nom : " << name << ", Attack : " << attack_actuel << ", Defense : " << defense_actuel << ", PV : " << pv_actuel << std::endl;
+	std::cout << "Nom : " << name << ", Type : " << typePlayer << ", Attack : " << attack_actuel << ", Defense : " << defense_actuel << ", PV : " << pv_actuel << std::endl;
 }
 
 void PlayerAbstract::getDamage(int damage)

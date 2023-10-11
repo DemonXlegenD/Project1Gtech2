@@ -6,7 +6,7 @@ class PlayerAbstract
 {
 public:
 
-	PlayerAbstract(const std::string name, int pv_max, int attack_max, int attack_actuel, int defense_max, int defense_actuel, int mana_max);
+	PlayerAbstract(const std::string name, int pv_max, int attack_max, int attack_actuel, int defense_max, int defense_actuel, int mana_max, std::string typePlayer);
 
 	std::string getName() const;
 
@@ -54,4 +54,5 @@ protected:
 	std::string last_spell_name;
 
 	std::string name;
+	std::string typePlayer;
 };

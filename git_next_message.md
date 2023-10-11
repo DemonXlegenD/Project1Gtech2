@@ -1,3 +1,3 @@
-ENH: Création de classes
+ENH: Amélioration des types
 
--Création de classes pour le player
+-Amélioration des types pour le joueur

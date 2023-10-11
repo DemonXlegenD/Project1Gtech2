@@ -19,11 +19,16 @@ int main()
 	std::cout << "Fight To Fight!\n";
 
 	std::string name1 = GameLoop::askName("Joueur 1");
+	std::this_thread::sleep_for(std::chrono::seconds(1));
 	std::string name2 = GameLoop::askName("Joueur 2");
 
-	PlayerWizard player1(name1, 100, 20, 10, 20, 5, 200);
+	PlayerAbstract player1 = GameLoop::askType(name1);
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+	PlayerAbstract player2 = GameLoop::askType(name2);
 
 	player1.afficherInfos();
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+	player2.afficherInfos();
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 
 	return 0;
