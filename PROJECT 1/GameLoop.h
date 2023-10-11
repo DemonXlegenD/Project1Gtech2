@@ -17,8 +17,10 @@ class GameLoop
 {
 public:
 	GameLoop();
+	static int askNumberPlayer();
+	static std::string askNameTeam(std::string team);
 	static std::string askName(std::string player);
-	static PlayerAbstract askType(std::string namePlayer);
+	static PlayerAbstract askType(std::string namePlayer);	
 	~GameLoop();
 };	
 
