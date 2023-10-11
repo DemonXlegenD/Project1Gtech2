@@ -1,26 +1,26 @@
 #pragma once
 #include "PlayerAbstract.h"
+#include "Team.h"
+#include <vector>
 
 class GameConfig
 {
 public :
-	GameConfig(PlayerAbstract player1, PlayerAbstract player2);
-	PlayerAbstract getPlayer1();
-	PlayerAbstract getPlayer2();
+	GameConfig(Team team1, Team team2, std::vector<PlayerAbstract>);
+	Team getTeam1();
+	Team getTeam2();
+	std::vector<PlayerAbstract> getPlayers();
+	PlayerAbstract getPlayerById(int id);
+	size_t getNumberPlayers();
 
-	int getRound();
-	void setRound(int round);
-	void addRound();
 
-	int getTimer();
-	void showTimer();
 	~GameConfig();
 
 
 private:
-	PlayerAbstract player1;
-	PlayerAbstract player2;
-	int round_number;
-	int timer;
+	Team team1;
+	Team team2;
+	std::vector<PlayerAbstract> players;
+
 };
 

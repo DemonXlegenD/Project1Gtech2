@@ -9,7 +9,7 @@ class PlayerWizard : public PlayerAbstract
 public:
 	
 	PlayerWizard(
-		const std::string n,
+		const std::string name,
 		int pv_max,
 		int attack_max,
 		int attack,
@@ -30,5 +30,6 @@ private:
 	void useAtkBuff();
 
 	void useActions(int index)
+	Spell avadacadavra;
 };
 

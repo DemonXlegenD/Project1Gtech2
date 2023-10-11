@@ -1,6 +1,51 @@
 #include "GameLoop.h"
 
 GameLoop::GameLoop() {}
+
+
+int GameLoop::askNumberPlayer() {
+	int numberPlayer = 0;
+	do {
+		std::cout << "Combien de joueurs dans la partie (2,4,6,8): ";
+		std::cin >> numberPlayer;
+
+		// Vérification de la validité de la saisie (par exemple, si la longueur est supérieure à 3 caractères)
+		if (numberPlayer > 1 && numberPlayer % 2 == 0 && numberPlayer < 9) {
+			std::cout << "Saisie valide, nombre de joueurs = " << numberPlayer << std::endl;
+			break;  // Sort de la boucle lorsque la saisie est valide
+		}
+		else {
+			std::cout << "Saisie invalide. Réessayez." << std::endl;
+			// Efface le tampon d'entrée pour éviter des boucles infinies si l'utilisateur entre des caractères non valides
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+	} while (true);
+	return numberPlayer;
+}
+
+std::string GameLoop::askNameTeam(std::string team) {
+	std::string name;
+	do {
+		std::cout << team << ", entrez un nom d'équipe valide : ";
+		std::cin >> name;
+
+		// Vérification de la validité de la saisie (par exemple, si la longueur est supérieure à 3 caractères)
+		if (name.length() > 3) {
+			std::cout << "Saisie valide : " << name << std::endl;
+			break;  // Sort de la boucle lorsque la saisie est valide
+		}
+		else {
+			std::cout << "Saisie invalide. Réessayez." << std::endl;
+			// Efface le tampon d'entrée pour éviter des boucles infinies si l'utilisateur entre des caractères non valides
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+	} while (true);
+
+	return name;
+}
+
 std::string GameLoop::askName(std::string player) {
 	std::string name;
 	do {
