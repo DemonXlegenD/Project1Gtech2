@@ -60,7 +60,7 @@ int main()
 			do {
 				std::cout << "Au tour du joueur " << i + 1 << " : " << config.getPlayerByIndex(i).getName() << "." << std::endl;
 				std::cout << "Choisissez une action a faire :\n";
-				config.getPlayerByIndex(i).getActionList();
+				config.getPlayerByIndex(i).;
 				for()
 				break;
 			} while (true);

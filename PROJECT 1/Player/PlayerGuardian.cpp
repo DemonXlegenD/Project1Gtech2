@@ -23,7 +23,9 @@ PlayerGuardian::PlayerGuardian(
 	speed,
 	manaMax,
 	std::string("Guardian")
-) {}
+){
+	archetype = guardian
+}
 
 int PlayerGuardian::useAvadacadavra() {
 

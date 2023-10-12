@@ -1,3 +1,3 @@
-FIX: Réparation des fichiers
+ENH: créations énum et archetype
 
--Réparations des fichiers après merge
+-Créations des archétype et de l'enum des archetype
