@@ -24,8 +24,9 @@ PlayerWizard::PlayerWizard(
 	speed,
 	manaMax,
 	std::string("Wizard")
-)
-{}
+) {
+	archetype = wizard
+}
 
 
 const std::vector<std::string> actions = {
@@ -42,19 +43,33 @@ int PlayerWizard::useAvadacadavra() {
 }
 
 void PlayerWizard::useManaShield() {
-std::cout << "Mana shield Used\n";
+	std::cout << "Mana shield Used\n";
 }
 
 void PlayerWizard::useAtkBuff() {
-std::cout << "Attack Buffed\n";
+	std::cout << "Attack Buffed\n";
 }
 
 void PlayerWizard::useAtkDebuff() {
-std::cout << "Ennemy Attack Debuffed\n";
+	std::cout << "Ennemy Attack Debuffed\n";
 }
 
 void PlayerWizard::surrender() {
-std::cout << "You have surrendered the fight\n";
+	std::cout << "You have surrendered the fight\n";
+}
+
+Spell useOffensive() override {
+	return new Spell{ "Giga Fire",attack * 1.3,50 };
+}
+
+Spell useDefensive() override {
+	return new Spell{ "Mana Barrier",defense + defense * 0.5,100 }
+}
+Spell useBuff() override {
+	return new Spell{ "Ley Lines", attack + attack * 0.5,150 }
+}
+Spell useUltimate() override {
+	return new Spell{"Meteor",3 * attack, 250}
 }
 
 void PlayerWizard::useActions(int index) {

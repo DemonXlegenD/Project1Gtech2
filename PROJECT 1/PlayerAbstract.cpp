@@ -131,8 +131,19 @@ void PlayerAbstract::callUsedSpell(Spell usedSpell) {
 	std::cout << "Joueur " << name << " a utiliser le sort " << usedSpell.getName() << "." << std::endl;
 }
 
-std::string PlayerAbstract::getPlayerType() {
-	return typePlayer;
+void PlayerAbstract::getPlayerType(std::string typePlayer) {
+	if (typePlayer === "Wizard") {
+		return new PlayerWizard;
+	}
+	else if (typePlayer === "Warrior") {
+		return new PlayerWarrior;
+	}
+	else if (typePlayer === "Knight") {
+		return new PlayerKnight;
+	}
+	else if (typePlayer === "Guardian") {
+		return new PlayerGuardian;
+	}
 }
 
 
@@ -153,5 +164,16 @@ Spell PlayerAbstract::useUltimate() {
 
 	return { "Inner Chaos",attack * 2,200 };
 }
+void PlayerAbstract::setActionList(std::vector<Spell> actionList) {
+	actionList.push_back(PlayerAbstract::useOffensive());
+	actionList.push_back(PlayerAbstract::useDefensive());
+	actionList.push_back(PlayerAbstract::useBuff());
+	actionList.push_back(PlayerAbstract::useUltimate());
+}
+
+std::vector<Spell> PlayerAbstract::getActionList() {
+	return actionList;
+}
+
 
 PlayerAbstract::~PlayerAbstract() {}

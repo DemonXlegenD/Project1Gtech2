@@ -25,11 +25,8 @@ public:
 	void surrender();
 	void useManaShield();
 	void useAtkDebuff();
-	void useAtkBuff();
-
-	void useActions(int index);
-
 	
+	void useActions(int index)
 
 private:
 	

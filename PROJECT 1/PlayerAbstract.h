@@ -2,6 +2,10 @@
 #include <iostream>
 #include "Spell.h"
 #include <vector>
+#include "PlayerWarrior.h"
+#include "PlayerWizard.h"
+#include "PlayerKnight.h"
+#include "PlayerGuardian.h"
 
 class PlayerAbstract
 {
@@ -21,6 +25,12 @@ public:
 		std::string typePlayer
 	);
 
+	enum archetypeEnum {
+		wizard,
+		warrior,
+		knight,
+		guardian
+	};
 	std::string getId() const;
 	std::string getName() const;
 
@@ -50,12 +60,15 @@ public:
 
 	void callUsedSpell(Spell usedSpell);
 
-	std::string getPlayerType();
+	void getPlayerType(archetypeEnum archetype);
 
-	Spell useOffensive();
-	Spell useDefensive();
-	Spell useBuff();
-	Spell useUltimate();
+	void setActionList(std::vector<Spell> actionList);
+	void getActionList();
+
+	virtual Spell useOffensive();
+	virtual Spell useDefensive();
+	virtual Spell useBuff();
+	virtual Spell useUltimate();
 
 	~PlayerAbstract();
 
@@ -85,4 +98,8 @@ protected:
 
 	std::string name;
 	std::string typePlayer;
+
+	archetypeEnum archetype;
+
+	std::vector<Spell> actionList;
 };

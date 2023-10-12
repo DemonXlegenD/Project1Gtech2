@@ -59,7 +59,9 @@ int main()
 		for (int i = 0; i < config.getNumberPlayers(); i++) {
 			do {
 				std::cout << "Au tour du joueur " << i + 1 << " : " << config.getPlayerByIndex(i).getName() << "." << std::endl;
-
+				std::cout << "Choisissez une action a faire :\n";
+				config.getPlayerByIndex(i).getActionList();
+				for()
 				break;
 			} while (true);
 		}
