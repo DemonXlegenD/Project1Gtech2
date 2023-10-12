@@ -4,7 +4,7 @@
 #include <vector>
 
 class PlayerAbstract
-{
+{ 
 public:
 
 	PlayerAbstract(
@@ -20,6 +20,14 @@ public:
 		int manaMax,
 		std::string typePlayer
 	);
+	std::vector<Spell> spellList;
+
+	enum archetypeEnum {
+		wizard,
+		knight,
+		warrior,
+		guardian
+	};
 
 	std::string getId() const;
 	std::string getName() const;
@@ -52,10 +60,13 @@ public:
 
 	std::string getPlayerType();
 
-	Spell useOffensive();
-	Spell useDefensive();
-	Spell useBuff();
-	Spell useUltimate();
+	virtual void addSpellToList();
+
+	std::vector<Spell> getSpellList() const {
+		return spellList;
+	}
+
+	//virtual std::vector<Spell> createSpellList();
 
 	~PlayerAbstract();
 
@@ -78,6 +89,7 @@ protected:
 	float speedMax;
 	float speed;
 
+	
 
 	Spell basic_spell;
 
@@ -85,4 +97,6 @@ protected:
 
 	std::string name;
 	std::string typePlayer;
+
+	archetypeEnum archetype;
 };
