@@ -45,6 +45,10 @@ int main()
 		teams.push_back(Team(name, playersTeam));
 	}
 
+	for (int i = 0; i < 2; i++) {
+		std::cout << players[i].getName();
+	}
+
 
 
 
