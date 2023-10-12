@@ -1,10 +1,14 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include "Spell.h"
 #include <vector>
+#include <fstream>
+#include <sstream>
+#include <map>
 
 class PlayerAbstract
-{ 
+{
 public:
 
 	PlayerAbstract(
@@ -53,9 +57,7 @@ public:
 
 	void callUsedSpell(Spell usedSpell);
 
-	void getArchetype() {
-
-	}
+	void readFile();
 
 	std::string getPlayerType();
 

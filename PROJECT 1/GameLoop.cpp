@@ -69,12 +69,97 @@ std::string GameLoop::askName(std::string player) {
 }
 
 PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
+
+	std::string classFile = "./Data/Class.txt";
+	std::ifstream fichier(classFile);
 	std::string chosenType;
 	std::vector<TypeCombattantClass> combattants;
-	combattants.push_back({ "Magicien", PlayerWizard(idPlayer, namePlayer, 100, 50, 20, 10, 5, 500) });
-	combattants.push_back({ "Guerrier", PlayerWarrior(idPlayer, namePlayer, 100, 50, 20, 10, 5, 500) });
-	combattants.push_back({ "Chevalier", PlayerKnight(idPlayer, namePlayer, 100, 50, 20, 10, 5, 500) });
-	combattants.push_back({ "Gardien", PlayerGuardian(idPlayer, namePlayer, 100, 50, 20, 10, 5, 500) });
+	int pvMax;
+	int attackMax;
+	int attack;
+	int defenseMax;
+	int defense;
+	int manaMax;
+
+	if (fichier.is_open()) {
+		std::string ligne;
+		std::string categorieActuelle;
+
+		while (std::getline(fichier, ligne)) {
+			if (ligne.find("[wizard]") != std::string::npos) {
+				std::istringstream flux(ligne);
+				std::string cle;
+				int valeur;
+
+				if (flux >> cle >> valeur) {
+					if (cle == "pvMax") pvMax = valeur;
+					else if (cle == "attackMax")attackMax = valeur;
+					else if (cle == "attack")attack = valeur;
+					else if (cle == "defenseMax")defenseMax = valeur;
+					else if (cle == "defense") defense = valeur;
+					else if (cle == "manaMax") manaMax = valeur;
+
+				}
+				combattants.push_back({ "Magicien", PlayerWizard(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+			}
+			else if (ligne.find("[warrior]") != std::string::npos) {
+				std::istringstream flux(ligne);
+				std::string cle;
+				int valeur;
+
+				if (flux >> cle >> valeur) {
+					if (cle == "pvMax") pvMax = valeur;
+					else if (cle == "attackMax")attackMax = valeur;
+					else if (cle == "attack")attack = valeur;
+					else if (cle == "defenseMax")defenseMax = valeur;
+					else if (cle == "defense") defense = valeur;
+					else if (cle == "manaMax") manaMax = valeur;
+
+				}
+				combattants.push_back({ "Guerrier", PlayerWarrior(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+			}
+			else if (ligne.find("[knight]") != std::string::npos) {
+				std::istringstream flux(ligne);
+				std::string cle;
+				int valeur;
+
+				if (flux >> cle >> valeur) {
+					if (cle == "pvMax") pvMax = valeur;
+					else if (cle == "attackMax")attackMax = valeur;
+					else if (cle == "attack")attack = valeur;
+					else if (cle == "defenseMax")defenseMax = valeur;
+					else if (cle == "defense") defense = valeur;
+					else if (cle == "manaMax") manaMax = valeur;
+
+				}
+				combattants.push_back({ "Chevalier", PlayerKnight(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+			}
+			else if (ligne.find("[guardian]") != std::string::npos) {
+				std::istringstream flux(ligne);
+				std::string cle;
+				int valeur;
+
+				if (flux >> cle >> valeur) {
+					if (cle == "pvMax") pvMax = valeur;
+					else if (cle == "attackMax")attackMax = valeur;
+					else if (cle == "attack")attack = valeur;
+					else if (cle == "defenseMax")defenseMax = valeur;
+					else if (cle == "defense") defense = valeur;
+					else if (cle == "manaMax") manaMax = valeur;
+
+				}
+				combattants.push_back({ "Gardien", PlayerGuardian(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+			}
+
+		}
+
+		fichier.close();
+	}
+	else {
+		std::cerr << "Impossible d'ouvrir le fichier " << classFile << std::endl;
+	}
+
+
 
 	do {
 		std::cout << namePlayer << ", choisissez un type de combattant : " << std::endl;
@@ -94,6 +179,10 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 		}
 		std::cout << "Saisie invalide. Réessayez." << std::endl;
 	} while (true);
+}
+
+void readFile() {
+
 }
 
 GameLoop::~GameLoop() {}

@@ -122,4 +122,6 @@ void PlayerAbstract::addSpellToList() {
 	spellList.push_back(spellOffensif);
 }
 
+
+
 PlayerAbstract::~PlayerAbstract() {}
