@@ -1,7 +1,6 @@
 #pragma once
 #include "../PlayerAbstract.h"
 
-
 class PlayerWizard : public PlayerAbstract
 {
 	using PlayerAbstract::PlayerAbstract;

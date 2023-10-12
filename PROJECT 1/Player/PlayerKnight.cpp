@@ -8,8 +8,6 @@ PlayerKnight::PlayerKnight(
 	int attack,
 	int defenseMax,
 	int defense,
-	float speedMax,
-	float speed,
 	int manaMax
 ) : PlayerAbstract(
 	id,
@@ -19,13 +17,12 @@ PlayerKnight::PlayerKnight(
 	attack,
 	defenseMax,
 	defense,
-	speedMax,
-	speed,
 	manaMax,
 	std::string("Knight")
 ) {
 	archetype = knight;
 }
+
 
 
 

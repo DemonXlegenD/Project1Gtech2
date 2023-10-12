@@ -10,13 +10,14 @@ public:
 	PlayerAbstract(
 		const std::string id,
 		const std::string name,
-		int pvMax, 
-		int attackMax, 
-		int attack, 
+
+		int pvMax,
+		int attackMax,
+		int attack,
 		int defenseMax,
-		int defense, 
-		float speedMax,
-		float speed,
+		int defense,
+		int manaMax,
+		std::string typePlayer
 		int manaMax,
 		std::string typePlayer
 	);
@@ -28,7 +29,6 @@ public:
 		warrior,
 		guardian
 	};
-
 	std::string getId() const;
 	std::string getName() const;
 
@@ -45,9 +45,6 @@ public:
 	int getActualMana() const;
 	void setActualMana(int mana);
 
-	float getActualSpeed() const;
-	void setActualSpeed(float speed);
-
 	std::string getLastSpellName();
 	void setLastSpellName(std::string spell_name);
 
@@ -60,11 +57,13 @@ public:
 
 	std::string getPlayerType();
 
+
 	virtual void addSpellToList();
 
 	std::vector<Spell> getSpellList() const {
 		return spellList;
 	}
+
 
 	//virtual std::vector<Spell> createSpellList();
 
@@ -73,6 +72,7 @@ public:
 protected:
 
 	std::string id;
+
 
 	int pvMax;
 	int pv;
@@ -85,11 +85,6 @@ protected:
 
 	int manaMax;
 	int mana;
-
-	float speedMax;
-	float speed;
-
-	
 
 	Spell basic_spell;
 

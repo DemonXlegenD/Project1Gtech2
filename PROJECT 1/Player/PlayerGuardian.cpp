@@ -8,8 +8,6 @@ PlayerGuardian::PlayerGuardian(
 	int attack,
 	int defenseMax,
 	int defense,
-	float speedMax,
-	float speed,
 	int manaMax
 ) : PlayerAbstract(
 	id,
@@ -19,8 +17,6 @@ PlayerGuardian::PlayerGuardian(
 	attack,
 	defenseMax,
 	defense,
-	speedMax,
-	speed,
 	manaMax,
 	std::string("Guardian")
 ) {
