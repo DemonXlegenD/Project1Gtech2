@@ -26,7 +26,7 @@ PlayerAbstract::PlayerAbstract(
 	speed(speed),
 	manaMax(manaMax),
 	mana(manaMax),
-	basic_spell(std::string("Attaque de base"), 30, 10),
+	basic_spell(basic_spell),
 	typePlayer(typePlayer)
 {}
 
@@ -134,24 +134,9 @@ void PlayerAbstract::callUsedSpell(Spell usedSpell) {
 std::string PlayerAbstract::getPlayerType() {
 	return typePlayer;
 }
-
-
-Spell PlayerAbstract::useOffensive() {
-
-	return Spell{ "Heavy Swing",attack,0 };
-
-}
-Spell PlayerAbstract::useDefensive() {
-
-	return { "Bloodwhetting",defense + (int)(defense * 1.2f),100 };
-}
-Spell PlayerAbstract::useBuff() {
-
-	return { "Inner Release",attack + (int)(attack * 1.2f),100 };
-}
-Spell PlayerAbstract::useUltimate() {
-
-	return { "Inner Chaos",attack * 2,200 };
+void PlayerAbstract::addSpellToList() {
+	Spell spellOffensif("yayaya", attack, 0);
+	spellList.push_back(spellOffensif);
 }
 
 PlayerAbstract::~PlayerAbstract() {}

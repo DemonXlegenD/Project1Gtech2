@@ -1,3 +1,3 @@
-FIX: Réparation des fichiers
+ENH:Créations des sorts
 
--Réparations des fichiers après merge
+- création d'une fonction pour ajouter les sorts a la liste de sort

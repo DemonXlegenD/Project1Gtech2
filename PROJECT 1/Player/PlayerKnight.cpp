@@ -23,7 +23,9 @@ PlayerKnight::PlayerKnight(
 	speed,
 	manaMax,
 	std::string("Knight")
-) {}
+) {
+	archetype = knight;
+}
 
 
 
