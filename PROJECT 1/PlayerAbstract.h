@@ -18,8 +18,6 @@ public:
 		int defense,
 		int manaMax,
 		std::string typePlayer
-		int manaMax,
-		std::string typePlayer
 	);
 	std::vector<Spell> spellList;
 

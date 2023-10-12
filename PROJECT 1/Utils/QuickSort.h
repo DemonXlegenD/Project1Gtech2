@@ -14,8 +14,3 @@ template <typename T>
 void quicksort(std::vector<T>& vec, int low, size_t high);
 
 */
-void swap(std::vector<PlayerAbstract>& vec, int a, int b);
-
-int partition(std::vector<PlayerAbstract>& vec, int low, int high);
-
-void quicksort(std::vector<PlayerAbstract>& vec, int low, size_t high);

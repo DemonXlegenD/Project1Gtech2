@@ -12,7 +12,6 @@ Team GameConfig::getTeam2() {
 }
 
 std::vector<PlayerAbstract> GameConfig::getPlayers() {
-	quicksort(players, 0, players.size() - 1);
 	return players;
 }
 PlayerAbstract* GameConfig::getPlayerById(std::string id) {
