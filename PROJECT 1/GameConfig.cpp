@@ -14,13 +14,12 @@ Team GameConfig::getTeam2() {
 std::vector<PlayerAbstract> GameConfig::getPlayers() {
 	return players;
 }
-PlayerAbstract* GameConfig::getPlayerById(std::string id) {
-	for (const PlayerAbstract& player : players) {
+PlayerAbstract GameConfig::getPlayerById(std::string id) {
+	for (const PlayerAbstract player : players) {
 		if (player.getId() == id) {
-			return const_cast<PlayerAbstract*>(&player);
+			return player;
 		}
 	}
-	return nullptr;
 }
 
 PlayerAbstract GameConfig::getPlayerByIndex(int index) {

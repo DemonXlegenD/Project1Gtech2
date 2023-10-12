@@ -53,6 +53,10 @@ public:
 
 	void callUsedSpell(Spell usedSpell);
 
+	void getArchetype() {
+
+	}
+
 	std::string getPlayerType();
 
 

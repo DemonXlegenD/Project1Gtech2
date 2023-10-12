@@ -56,16 +56,26 @@ int main()
 	do {
 		std::cout << "FIGHT" << std::endl;
 
-		for (int i = 0; i < config.getNumberPlayers(); i++) {
-			do {
-				std::cout << "Au tour du joueur " << i + 1 << " : " << config.getPlayerByIndex(i).getName() << "." << std::endl;
+		do {
+			std::cout << "Au tour du joueur " << 1 << " : " << players[0].getName() << ".\n";
+			players[0].addSpellToList();
+			for (int j = 0; j < players[0].getSpellList().size(); j++) {
+				std::cout << players[0].getSpellList()[j].getName() << std::endl;
+			}
+			std::cout << "Choisir une action a faire" << std::endl;
 
-				break;
-			} while (true);
-		}
+		} while (true);
+
+		do {
+			std::cout << "Au tour du joueur " << 2 << " : " << players[1].getName() << ".\n";
+			players[1].addSpellToList();
+			for (int j = 0; j < players[1].getSpellList().size(); j++) {
+				std::cout << players[1].getSpellList()[j].getName() << std::endl;
+			}
+
+		} while (true);
 
 
-		break;
 	} while (config.getPlayerByIndex(0).getActualPv() > 0 && config.getPlayerByIndex(1).getActualPv() > 0);
 
 	int actionTurn = 0;
