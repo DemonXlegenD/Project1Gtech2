@@ -136,6 +136,7 @@
     <ClCompile Include="Player\PlayerGuardian.cpp" />
     <ClCompile Include="Player\PlayerWizard.cpp" />
     <ClCompile Include="PROJECT_1.cpp" />
+    <ClCompile Include="Utils\QuickSort.cpp" />
     <ClCompile Include="Spell.cpp" />
     <ClCompile Include="Team.cpp" />
   </ItemGroup>
@@ -148,6 +149,7 @@
     <ClInclude Include="Player\PlayerKnight.h" />
     <ClInclude Include="Player\PlayerGuardian.h" />
     <ClInclude Include="Player\PlayerWizard.h" />
+    <ClInclude Include="Utils\QuickSort.h" />
     <ClInclude Include="Spell.h" />
     <ClInclude Include="Team.h" />
   </ItemGroup>

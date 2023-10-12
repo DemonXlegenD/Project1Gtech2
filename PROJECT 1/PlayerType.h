@@ -7,7 +7,7 @@ class PlayerType : public PlayerAbstract {
 
 public:
 
-	PlayerType(const std::string n,
+	PlayerType(const std::string name,
 		int pv_max,
 		int attack_max,
 		int attack,
@@ -15,7 +15,7 @@ public:
 		int defense,
 		int mana_max,
 		std::string playerType) :
-		PlayerAbstract(n,
+		PlayerAbstract(name,
 			pv_max,
 			attack_max,
 			attack,

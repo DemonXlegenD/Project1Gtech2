@@ -72,7 +72,6 @@ void PlayerAbstract::setActualDefense(int newDefense) {
 	}
 	else {
 		defense = newDefense;
-	}
 }
 
 int PlayerAbstract::getActualMana() const {
