@@ -11,7 +11,7 @@ public :
 	Team getTeam1();
 	Team getTeam2();
 	std::vector<PlayerAbstract> getPlayers();
-	PlayerAbstract* getPlayerById(std::string id);
+	PlayerAbstract getPlayerById(std::string id);
 	PlayerAbstract getPlayerByIndex(int index);
 	size_t getNumberPlayers();
 
