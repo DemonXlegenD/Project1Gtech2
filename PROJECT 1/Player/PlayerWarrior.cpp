@@ -8,8 +8,6 @@ PlayerWarrior::PlayerWarrior(
 	int attack,
 	int defenseMax,
 	int defense,
-	float speedMax,
-	float speed,
 	int manaMax
 ) : PlayerAbstract(
 	id,
@@ -19,11 +17,8 @@ PlayerWarrior::PlayerWarrior(
 	attack,
 	defenseMax,
 	defense,
-	speedMax,
-	speed,
 	manaMax,
 	std::string("Warrior")
 ) {
 	archetype = warrior;
 }
-
