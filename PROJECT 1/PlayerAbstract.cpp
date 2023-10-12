@@ -9,8 +9,6 @@ PlayerAbstract::PlayerAbstract(
 	int attack = 5,
 	int defenseMax = 10,
 	int defense = 5,
-	float speedMax = 1.0f,
-	float speed = 0.5f,
 	int manaMax = 500,
 	std::string typePlayer = "Villageois"
 ) :
@@ -22,8 +20,6 @@ PlayerAbstract::PlayerAbstract(
 	attack(attack),
 	defenseMax(defenseMax),
 	defense(defense),
-	speedMax(speedMax),
-	speed(speed),
 	manaMax(manaMax),
 	mana(manaMax),
 	basic_spell(std::string("Attaque de base"), 30, 10),
@@ -76,20 +72,6 @@ void PlayerAbstract::setActualDefense(int newDefense) {
 	}
 	else {
 		defense = newDefense;
-	}
-}
-
-float PlayerAbstract::getActualSpeed() const {
-	return speed;
-}
-
-void PlayerAbstract::setActualSpeed(float newSpeed) {
-	if (newSpeed > speedMax) {
-		speed = speedMax;
-	}
-	else {
-		speed = newSpeed;
-	}
 }
 
 int PlayerAbstract::getActualMana() const {

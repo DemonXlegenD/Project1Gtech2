@@ -9,8 +9,6 @@ PlayerWizard::PlayerWizard(
 	int attack,
 	int defenseMax,
 	int defense,
-	float speedMax,
-	float speed,
 	int manaMax
 ) : PlayerAbstract(
 	id,
@@ -20,8 +18,6 @@ PlayerWizard::PlayerWizard(
 	attack,
 	defenseMax,
 	defense,
-	speedMax,
-	speed,
 	manaMax,
 	std::string("Wizard")
 )
@@ -42,19 +38,19 @@ int PlayerWizard::useAvadacadavra() {
 }
 
 void PlayerWizard::useManaShield() {
-std::cout << "Mana shield Used\n";
+	std::cout << "Mana shield Used\n";
 }
 
 void PlayerWizard::useAtkBuff() {
-std::cout << "Attack Buffed\n";
+	std::cout << "Attack Buffed\n";
 }
 
 void PlayerWizard::useAtkDebuff() {
-std::cout << "Ennemy Attack Debuffed\n";
+	std::cout << "Ennemy Attack Debuffed\n";
 }
 
 void PlayerWizard::surrender() {
-std::cout << "You have surrendered the fight\n";
+	std::cout << "You have surrendered the fight\n";
 }
 
 void PlayerWizard::useActions(int index) {

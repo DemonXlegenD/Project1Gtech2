@@ -15,8 +15,6 @@ public:
 		int attack,
 		int defense_max,
 		int defense,
-		float speedMax,
-		float speed,
 		int mana_max
 	);
 
