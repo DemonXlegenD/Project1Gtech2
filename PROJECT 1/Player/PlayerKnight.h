@@ -8,13 +8,16 @@ class PlayerKnight : public PlayerAbstract
 
 public:
 
-	PlayerKnight(const std::string n,
-		int pv_max,
-		int attack_max,
+	PlayerKnight(
+		const std::string id,
+		const std::string name,
+		int pvMax,
+		int attackMax,
 		int attack,
-		int defense_max,
+		int defenseMax,
 		int defense,
-		int mana_max);
+		int manaMax
+	);
 
 
 
@@ -23,4 +26,3 @@ public:
 private:
 
 };
-

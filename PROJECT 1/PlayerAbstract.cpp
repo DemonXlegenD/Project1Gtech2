@@ -2,82 +2,89 @@
 
 
 PlayerAbstract::PlayerAbstract(
-	const std::string n = "player",
-	int pv_max = 100,
-	int attack_max = 20,
+	const std::string id,
+	const std::string name = "player",
+	int pvMax = 100,
+	int attackMax = 20,
 	int attack = 5,
-	int defense_max = 10,
+	int defenseMax = 10,
 	int defense = 5,
-	int mana_max = 500,
+	int manaMax = 500,
 	std::string typePlayer = "Villageois"
 ) :
-	name(n),
-	pv_max(pv_max),
-	pv_actuel(pv_max),
-	attack_max(attack_max),
-	attack_actuel(attack),
-	defense_max(defense_max),
-	defense_actuel(defense),
-	mana_max(mana_max),
-	mana_actuel(mana_max),
+	id(id),
+	name(name),
+	pvMax(pvMax),
+	pv(pvMax),
+	attackMax(attackMax),
+	attack(attack),
+	defenseMax(defenseMax),
+	defense(defense),
+	manaMax(manaMax),
+	mana(manaMax),
 	basic_spell(std::string("Attaque de base"), 30, 10),
 	typePlayer(typePlayer)
 {}
 
+std::string PlayerAbstract::getId() const
+{
+	return id;
+}
+
 std::string PlayerAbstract::getName() const
 {
-	return std::string();
+	return name;
 }
 
-int PlayerAbstract::getPvActuel() const {
-	return pv_actuel;
+int PlayerAbstract::getActualPv() const {
+	return pv;
 }
 
-void PlayerAbstract::setPvActuel(int pv) {
-	if (pv > pv_max) {
-		pv_actuel = pv_max;
+void PlayerAbstract::setActualPv(int newPv) {
+	if (newPv > pvMax) {
+		pv = pvMax;
 	}
 	else {
-		pv_actuel = pv;
+		pv = newPv;
 	}
 }
 
-int PlayerAbstract::getAttackActuel() const {
-	return attack_actuel;
+int PlayerAbstract::getActualAttack() const {
+	return attack;
 }
 
-void PlayerAbstract::setAttackActuel(int attack) {
-	if (attack > attack_max) {
-		attack_actuel = attack_max;
-	}
-	else {
-		attack_actuel = attack;
-	}
-}
-
-int PlayerAbstract::getDefenseActuel() const {
-	return defense_actuel;
-}
-
-void PlayerAbstract::setDefenseActuel(int defense) {
-	if (defense > defense_max) {
-		defense_actuel = defense_max;
+void PlayerAbstract::setActualAttack(int newAttack) {
+	if (newAttack > attackMax) {
+		attack = attackMax;
 	}
 	else {
-		defense_actuel = defense;
+		attack = newAttack;
 	}
 }
 
-int PlayerAbstract::getManaActuel() const {
-	return mana_actuel;
+int PlayerAbstract::getActualDefense() const {
+	return defense;
 }
 
-void PlayerAbstract::setManaActuel(int mana) {
-	if (mana > mana_max) {
-		mana_actuel = mana_max;
+void PlayerAbstract::setActualDefense(int newDefense) {
+	if (newDefense > defenseMax) {
+		defense = defenseMax;
 	}
 	else {
-		mana_actuel = mana;
+		defense = newDefense;
+	}
+}
+
+int PlayerAbstract::getActualMana() const {
+	return mana;
+}
+
+void PlayerAbstract::setActualMana(int newMana) {
+	if (newMana > manaMax) {
+		mana = manaMax;
+	}
+	else {
+		mana = newMana;
 	}
 }
 
@@ -90,40 +97,44 @@ void PlayerAbstract::setLastSpellName(std::string spell_name) {
 }
 
 void PlayerAbstract::afficherInfos() {
-	std::cout << "Nom : " << name << ", Type : " << typePlayer << ", Attack : " << attack_actuel << ", Defense : " << defense_actuel << ", PV : " << pv_actuel << std::endl;
+	std::cout << "Nom : " << name << ", Type : " << typePlayer << ", Attack : " << attack << ", Defense : " << defense << ", PV : " << pv << std::endl;
 }
 
 void PlayerAbstract::getDamage(int damage)
 {
-	pv_actuel -= (damage - (defense_actuel / 100 * damage));
+	pv -= (damage - (defense / 100 * damage));
 }
 
 void PlayerAbstract::getHealth(int health)
 {
-	pv_actuel += health;
+	pv += health;
 }
 
 void PlayerAbstract::callUsedSpell(Spell usedSpell) {
 	std::cout << "Joueur " << name << " a utiliser le sort " << usedSpell.getName() << "." << std::endl;
 }
 
+std::string PlayerAbstract::getPlayerType() {
+	return typePlayer;
+}
+
 
 Spell PlayerAbstract::useOffensive() {
 
-	return new Spell{ "Heavy Swing",attack_actuel,0 };
+	return Spell{ "Heavy Swing",attack,0 };
 
 }
 Spell PlayerAbstract::useDefensive() {
 
-	return { "Bloodwhetting",defense_actuel + defense_actuel * 1.2,100 };
+	return { "Bloodwhetting",defense + (int)(defense * 1.2f),100 };
 }
 Spell PlayerAbstract::useBuff() {
 
-	return { "Inner Release",attack_actuel + attack_actuel * 1.2,100 };
+	return { "Inner Release",attack + (int)(attack * 1.2f),100 };
 }
 Spell PlayerAbstract::useUltimate() {
 
-	return { "Inner Chaos",attack_actuel * 2,200 };
+	return { "Inner Chaos",attack * 2,200 };
 }
 
 PlayerAbstract::~PlayerAbstract() {}

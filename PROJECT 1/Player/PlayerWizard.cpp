@@ -2,21 +2,23 @@
 #include <vector>
 
 PlayerWizard::PlayerWizard(
+	const std::string id,
 	const std::string name,
-	int pv_max,
-	int attack_max,
+	int pvMax,
+	int attackMax,
 	int attack,
-	int defense_max,
+	int defenseMax,
 	int defense,
-	int mana_max
+	int manaMax
 ) : PlayerAbstract(
+	id,
 	name,
-	pv_max,
-	attack_max,
+	pvMax,
+	attackMax,
 	attack,
-	defense_max,
+	defenseMax,
 	defense,
-	mana_max,
+	manaMax,
 	std::string("Wizard")
 )
 {}
@@ -32,23 +34,23 @@ const std::vector<std::string> actions = {
 
 int PlayerWizard::useAvadacadavra() {
 
-	return attack_actuel * 2;
+	return attack * 2;
 }
 
 void PlayerWizard::useManaShield() {
-std::cout << "Mana shield Used\n";
+	std::cout << "Mana shield Used\n";
 }
 
 void PlayerWizard::useAtkBuff() {
-std::cout << "Attack Buffed\n";
+	std::cout << "Attack Buffed\n";
 }
 
 void PlayerWizard::useAtkDebuff() {
-std::cout << "Ennemy Attack Debuffed\n";
+	std::cout << "Ennemy Attack Debuffed\n";
 }
 
 void PlayerWizard::surrender() {
-std::cout << "You have surrendered the fight\n";
+	std::cout << "You have surrendered the fight\n";
 }
 
 void PlayerWizard::useActions(int index) {
