@@ -129,7 +129,8 @@
   <ItemGroup>
     <ClCompile Include="GameConfig.cpp" />
     <ClCompile Include="GameLoop.cpp" />
-    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameStats.cpp" />
+    <ClCompile Include="Log.cpp" />
     <ClCompile Include="PlayerAbstract.cpp" />
     <ClCompile Include="Player\PlayerWarrior.cpp" />
     <ClCompile Include="Player\PlayerKnight.cpp" />
@@ -143,7 +144,8 @@
   <ItemGroup>
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameLoop.h" />
-    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStats.h" />
+    <ClInclude Include="Log.h" />
     <ClInclude Include="PlayerAbstract.h" />
     <ClInclude Include="Player\PlayerWarrior.h" />
     <ClInclude Include="Player\PlayerKnight.h" />

@@ -1,3 +1,5 @@
-FIX: Réparation des fichiers
+ENH: Changement variable Amélioration Classes
 
--Réparations des fichiers après merge
+- Beaucoup de réorganisation
+- Ajout de nouvelles fonctions
+- Bug à revoir

@@ -1,7 +1,7 @@
 #pragma once
 #include "../PlayerAbstract.h"
 
-class PlayerGuardian : public PlayerAbstract
+class PlayerGuardian : virtual public PlayerAbstract
 {
 	using PlayerAbstract::PlayerAbstract;
 

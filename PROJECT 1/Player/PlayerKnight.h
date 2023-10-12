@@ -2,7 +2,7 @@
 #include "../PlayerAbstract.h"
 
 
-class PlayerKnight : public PlayerAbstract
+class PlayerKnight :virtual public PlayerAbstract
 {
 	using PlayerAbstract::PlayerAbstract;
 

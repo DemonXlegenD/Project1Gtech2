@@ -60,19 +60,19 @@ Error	LNK2019	unresolved external symbol "void __cdecl quicksort<class PlayerAbs
 
 */
 
-void swap(std::vector< PlayerAbstract>& vec, int a, int b) {
-	PlayerAbstract temp = vec[a];
+void swap(std::vector<PlayerAbstract*>& vec, int a, int b) {
+	PlayerAbstract* temp = vec[a];
 	vec[a] = vec[b];
 	vec[b] = temp;
 }
 
 // Fonction pour partitionner le vecteur en utilisant le premier élément comme pivot
-int partition(std::vector<PlayerAbstract>& vec, int low, int high) {
-	PlayerAbstract pivot = vec[low];
+int partition(std::vector<PlayerAbstract*>& vec, int low, int high) {
+	PlayerAbstract* pivot = vec[low];
 	int i = low + 1;
 
 	for (int j = low + 1; j <= high; j++) {
-		if (vec[j].getActualSpeed() < pivot.getActualSpeed()) {
+		if (vec[j]->getActualSpeed() < pivot->getActualSpeed()) {
 			swap(vec, i, j);
 			i++;
 		}
@@ -84,7 +84,7 @@ int partition(std::vector<PlayerAbstract>& vec, int low, int high) {
 
 
 // Fonction de tri rapide récursive
-void quicksort(std::vector<PlayerAbstract>& vec, int low, size_t high) {
+void quicksort(std::vector<PlayerAbstract*>& vec, int low, int high) {
 	if (low < high) {
 		int pivotIndex = partition(vec, low, high);
 	

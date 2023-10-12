@@ -6,7 +6,6 @@
 class PlayerAbstract
 {
 public:
-
 	PlayerAbstract(
 		const std::string id,
 		const std::string name,

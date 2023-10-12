@@ -8,11 +8,6 @@
 #include "./Player/PlayerKnight.h"
 #include "./Player/PlayerWarrior.h"
 
-struct TypeCombattantClass {
-	std::string name;
-	PlayerAbstract type;
-};
-
 class GameLoop
 {
 public:
@@ -20,7 +15,7 @@ public:
 	static int askNumberPlayer();
 	static std::string askNameTeam(std::string team);
 	static std::string askName(std::string player);
-	static PlayerAbstract askType(std::string idPlayer, std::string namePlayer);
+	static std::string askType(std::string namePlayer);
 	~GameLoop();
 };	
 

@@ -27,7 +27,7 @@ int GameLoop::askNumberPlayer() {
 std::string GameLoop::askNameTeam(std::string team) {
 	std::string name;
 	do {
-		std::cout << team << ", entrez un nom d'équipe valide : ";
+		std::cout << team << ", entrez un nom d'equipe valide : ";
 		std::cin >> name;
 
 		// Vérification de la validité de la saisie (par exemple, si la longueur est supérieure à 3 caractères)
@@ -68,27 +68,27 @@ std::string GameLoop::askName(std::string player) {
 	return name;
 }
 
-PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
+std::string GameLoop::askType(std::string namePlayer) {
 	std::string chosenType;
-	std::vector<TypeCombattantClass> combattants;
-	combattants.push_back({ "Magicien", PlayerWizard(idPlayer, namePlayer, 100, 50, 20, 10, 5, 1.0f, 0.6f, 500) });
-	combattants.push_back({ "Guerrier", PlayerWarrior(idPlayer, namePlayer, 100, 50, 20, 10, 5, 1.0f, 0.3f, 500) });
-	combattants.push_back({ "Chevalier", PlayerKnight(idPlayer, namePlayer, 100, 50, 20, 10, 5, 1.0f, 0.4f, 500) });
-	combattants.push_back({ "Gardien", PlayerGuardian(idPlayer, namePlayer, 100, 50, 20, 10, 5, 1.0f, 0.2f, 500) });
+	std::vector<std::string> types;
+	types.push_back("Magicien");
+	types.push_back("Guerrier");
+	types.push_back("Chevalier");
+	types.push_back("Gardien");
 
 	do {
 		std::cout << namePlayer << ", choisissez un type de combattant : " << std::endl;
 		int index = 1;
-		for (const TypeCombattantClass combattant : combattants) {
-			std::cout << index << "." << combattant.name << std::endl;
+		for (const std::string type : types) {
+			std::cout << index << "." << type << std::endl;
 			index++;
 		}
 
 		std::cin >> chosenType;
 		index = 1;
-		for (const TypeCombattantClass combattant : combattants) {
-			if (chosenType == combattant.name || chosenType == std::to_string(index)) {
-				return combattant.type;
+		for (const std::string type : types) {
+			if (chosenType == type || chosenType == std::to_string(index)) {
+				return type;
 			}
 			index++;
 		}

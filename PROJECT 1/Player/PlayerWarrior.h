@@ -3,7 +3,7 @@
 
 
 
-class PlayerWarrior : public PlayerAbstract
+class PlayerWarrior :virtual public PlayerAbstract
 {
 	using PlayerAbstract::PlayerAbstract;
 
