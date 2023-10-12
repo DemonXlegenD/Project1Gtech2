@@ -19,4 +19,6 @@ PlayerWarrior::PlayerWarrior(
 	defense,
 	manaMax,
 	std::string("Warrior")
-) {}
+) {
+	archetype = warrior;
+}

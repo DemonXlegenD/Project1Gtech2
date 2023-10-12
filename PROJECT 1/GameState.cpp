@@ -22,8 +22,32 @@ int GameState::getActualTurnNumber() {
 void GameState::resetActualTurn() {
 	actualTurnNumber = 0;
 }
-void GameState::addRound() {
+void GameState::addTurn() {
 	actualTurnNumber++;
+}
+
+int GameState::getTotalDamage() {
+	return totalDamage;
+}
+
+void GameState::addDamage(int damage) {
+	totalDamage += damage;
+}
+
+int GameState::getTotalHealth() {
+	return totalHealth;
+}
+
+void GameState::addHealth(int health) {
+	totalHealth += health;
+}
+
+int GameState::getTotalDefense() {
+	return totalDefense;
+}
+
+void GameState::addDefense(int defense) {
+	totalDefense += defense;
 }
 
 GameState::~GameState() {}

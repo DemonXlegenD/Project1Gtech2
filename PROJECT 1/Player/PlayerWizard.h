@@ -1,7 +1,6 @@
 #pragma once
 #include "../PlayerAbstract.h"
 
-
 class PlayerWizard : public PlayerAbstract
 {
 	using PlayerAbstract::PlayerAbstract;
@@ -9,13 +8,14 @@ class PlayerWizard : public PlayerAbstract
 public:
 	
 	PlayerWizard(
+		const std::string id,
 		const std::string name,
-		int pv_max,
-		int attack_max,
+		int pvMax,
+		int attackMax,
 		int attack,
-		int defense_max,
+		int defenseMax,
 		int defense,
-		int mana_max
+		int manaMax
 	);
 
 	int useAvadacadavra();
@@ -29,6 +29,5 @@ public:
 	
 
 private:
-	
-};
 
+};

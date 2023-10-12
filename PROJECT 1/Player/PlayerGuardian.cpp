@@ -19,9 +19,8 @@ PlayerGuardian::PlayerGuardian(
 	defense,
 	manaMax,
 	std::string("Guardian")
-) {}
-
-int PlayerGuardian::useAvadacadavra() {
-
-	return attack * 2;
+) {
+	archetype = guardian;
 }
+
+

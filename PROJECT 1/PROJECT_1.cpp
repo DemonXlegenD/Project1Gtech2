@@ -35,7 +35,7 @@ int main()
 		for (int i = 0; i < numberPlayer / 2; i++) {
 			std::string name(GameLoop::askName("Joueur " + std::to_string(i + 1)));
 			std::this_thread::sleep_for(std::chrono::seconds(1));
-			PlayerAbstract player(GameLoop::askType(name));
+			PlayerAbstract player(GameLoop::askType("Joueur " + std::to_string(i + 1), name));
 			playersTeam.push_back(player);
 			players.push_back(player);
 			std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -49,7 +49,7 @@ int main()
 
 
 
-	GameConfig config(teams[0],teams[1], players);
+	GameConfig config(teams[0], teams[1], players);
 
 	int playerNumberTurn = 0;
 
@@ -58,7 +58,7 @@ int main()
 
 		for (int i = 0; i < config.getNumberPlayers(); i++) {
 			do {
-				std::cout << "Au tour du joueur " << i + 1 << " : " << config.getPlayerById(i).getName() << "." << std::endl;
+				std::cout << "Au tour du joueur " << i + 1 << " : " << config.getPlayerByIndex(i).getName() << "." << std::endl;
 
 				break;
 			} while (true);
@@ -66,7 +66,7 @@ int main()
 
 
 		break;
-	} while (config.getPlayerById(0).getPvActuel() > 0 && config.getPlayerById(1).getPvActuel() > 0);
+	} while (config.getPlayerByIndex(0).getActualPv() > 0 && config.getPlayerByIndex(1).getActualPv() > 0);
 
 	int actionTurn = 0;
 

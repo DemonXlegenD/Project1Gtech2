@@ -21,7 +21,9 @@ PlayerWizard::PlayerWizard(
 	manaMax,
 	std::string("Wizard")
 )
-{}
+{
+	archetype = wizard;
+}
 
 
 const std::vector<std::string> actions = {

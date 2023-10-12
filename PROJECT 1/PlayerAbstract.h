@@ -4,12 +4,13 @@
 #include <vector>
 
 class PlayerAbstract
-{
+{ 
 public:
 
 	PlayerAbstract(
 		const std::string id,
 		const std::string name,
+
 		int pvMax,
 		int attackMax,
 		int attack,
@@ -17,8 +18,17 @@ public:
 		int defense,
 		int manaMax,
 		std::string typePlayer
+		int manaMax,
+		std::string typePlayer
 	);
+	std::vector<Spell> spellList;
 
+	enum archetypeEnum {
+		wizard,
+		knight,
+		warrior,
+		guardian
+	};
 	std::string getId() const;
 	std::string getName() const;
 
@@ -47,16 +57,22 @@ public:
 
 	std::string getPlayerType();
 
-	Spell useOffensive();
-	Spell useDefensive();
-	Spell useBuff();
-	Spell useUltimate();
+
+	virtual void addSpellToList();
+
+	std::vector<Spell> getSpellList() const {
+		return spellList;
+	}
+
+
+	//virtual std::vector<Spell> createSpellList();
 
 	~PlayerAbstract();
 
 protected:
 
 	std::string id;
+
 
 	int pvMax;
 	int pv;
@@ -70,11 +86,12 @@ protected:
 	int manaMax;
 	int mana;
 
-
 	Spell basic_spell;
 
 	std::string last_spell_name;
 
 	std::string name;
 	std::string typePlayer;
+
+	archetypeEnum archetype;
 };

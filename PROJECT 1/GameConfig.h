@@ -2,6 +2,7 @@
 #include "PlayerAbstract.h"
 #include "Team.h"
 #include <vector>
+#include "./Utils/QuickSort.h"
 
 class GameConfig
 {
@@ -10,7 +11,8 @@ public :
 	Team getTeam1();
 	Team getTeam2();
 	std::vector<PlayerAbstract> getPlayers();
-	PlayerAbstract getPlayerById(int id);
+	PlayerAbstract* getPlayerById(std::string id);
+	PlayerAbstract getPlayerByIndex(int index);
 	size_t getNumberPlayers();
 
 
