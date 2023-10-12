@@ -96,4 +96,32 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 	} while (true);
 }
 
+
+bool GameLoop::startAgain() {
+	std::string response;
+	bool stopPlaying = false;
+	do {
+		std::cout << "Voulez-vous relancer une partie? ";
+		std::cin >> response;
+
+		// Vérification de la validité de la saisie (par exemple, si la longueur est supérieure à 3 caractères)
+		if (response == std::string("yes") || response == std::string("Yes") || response == std::string("Y") || response == std::string("y")) {
+			std::cout << "Merci d'avoir joue!" << std::endl;
+			stopPlaying = true;
+			break;  // Sort de la boucle lorsque la saisie est valide
+		}
+		else if (response == std::string("no") || response == std::string("No") || response == std::string("N") || response == std::string("n")) {
+			std::cout << "C'est partie pour un nouveau tour!" << std::endl;
+			break;  // Sort de la boucle lorsque la saisie est valide
+		} else {
+			std::cout << "Saisie invalide. Réessayez." << std::endl;
+			// Efface le tampon d'entrée pour éviter des boucles infinies si l'utilisateur entre des caractères non valides
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+	} while (true);
+
+	return stopPlaying;
+}
+
 GameLoop::~GameLoop() {}
