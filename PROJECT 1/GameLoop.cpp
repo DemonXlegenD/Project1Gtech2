@@ -86,12 +86,12 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 	std::string classFile = "./Data/Class.txt";
 	std::ifstream fichier(classFile);
 	std::string chosenType;
-	std::vector<TypeCombattantClass> combattants;
+	std::vector<TypeCombattantClass*> combattants;
 
 	if (fichier.is_open()) {
 		std::string categorieActuelle;
 
-		std::map<std::string, std::map<std::string, int>> personnages; // Utilisez une map pour stocker les personnages et leurs attributs.
+		std::map<std::string, std::map<std::string, int>> personnages;
 
 		std::string ligne;
 		std::string personnage_actuel;
@@ -112,21 +112,14 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 					int valeur = std::stoi(ligne.substr(pos + 1));
 					personnages[personnage_actuel][attribut] = valeur;
 				}
+				/*1H Merci Victor*/
 			}
 		}
+		std::cout << personnages["wizard"]["pvMax"];
 
-
-		std::string personnage = "wizard";
-		if (personnages.find(personnage) != personnages.end()) {
-			std::map<std::string, int>& attributs = personnages[personnage];
-			std::cout << "[" << personnage << "]" << std::endl;
-			if (attributs.find("pvMax") != attributs.end() &&
-				attributs.find("attackMax") != attributs.end() &&
-				attributs.find("attack") != attributs.end() &&
-				attributs.find("defenseMax") != attributs.end() &&
-				attributs.find("defense") != attributs.end() &&
-				attributs.find("manaMax") != attributs.end()) {
-
+		std::string wizard("wizard");
+		if (personnages.find(wizard) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[wizard];
 				int pvMax = attributs["pvMax"];
 				int attackMax = attributs["attackMax"];
 				int attack = attributs["attack"];
@@ -136,22 +129,14 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 
 				std::cout << "pvmax" << pvMax;
 
-				combattants.push_back({ "Magicien", PlayerWizard(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+				combattants.push_back(new TypeCombattantClass{ "Magicien", PlayerWizard(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
 
-			}
+			
 		}
 
-		personnage = "warrior";
-		if (personnages.find(personnage) != personnages.end()) {
-			std::map<std::string, int>& attributs = personnages[personnage];
-			std::cout << "[" << personnage << "]" << std::endl;
-			if (attributs.find("pvMax") != attributs.end() &&
-				attributs.find("attackMax") != attributs.end() &&
-				attributs.find("attack") != attributs.end() &&
-				attributs.find("defenseMax") != attributs.end() &&
-				attributs.find("defense") != attributs.end() &&
-				attributs.find("manaMax") != attributs.end()) {
-
+		std::string  warrior("warrior");
+		if (personnages.find(warrior) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[warrior];
 				int pvMax = attributs["pvMax"];
 				int attackMax = attributs["attackMax"];
 				int attack = attributs["attack"];
@@ -159,23 +144,15 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 				int defense = attributs["defense"];
 				int manaMax = attributs["manaMax"];
 
-				combattants.push_back({ "Guerrier", PlayerWarrior(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+				combattants.push_back(new TypeCombattantClass{ "Guerrier", PlayerWarrior(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
 
-			}
+			
 		}
 
 
-		personnage = "knight";
-		if (personnages.find(personnage) != personnages.end()) {
-			std::map<std::string, int>& attributs = personnages[personnage];
-			std::cout << "[" << personnage << "]" << std::endl;
-			if (attributs.find("pvMax") != attributs.end() &&
-				attributs.find("attackMax") != attributs.end() &&
-				attributs.find("attack") != attributs.end() &&
-				attributs.find("defenseMax") != attributs.end() &&
-				attributs.find("defense") != attributs.end() &&
-				attributs.find("manaMax") != attributs.end()) {
-
+		std::string  knight("knight");
+		if (personnages.find(knight) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[knight];
 				int pvMax = attributs["pvMax"];
 				int attackMax = attributs["attackMax"];
 				int attack = attributs["attack"];
@@ -183,22 +160,14 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 				int defense = attributs["defense"];
 				int manaMax = attributs["manaMax"];
 
-				combattants.push_back({ "Chevalier", PlayerKnight(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+				combattants.push_back(new TypeCombattantClass{ "Chevalier", PlayerKnight(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
 
-			}
+			
 		}
 
-		personnage = "guardian";
-		if (personnages.find(personnage) != personnages.end()) {
-			std::map<std::string, int>& attributs = personnages[personnage];
-			std::cout << "[" << personnage << "]" << std::endl;
-			if (attributs.find("pvMax") != attributs.end() &&
-				attributs.find("attackMax") != attributs.end() &&
-				attributs.find("attack") != attributs.end() &&
-				attributs.find("defenseMax") != attributs.end() &&
-				attributs.find("defense") != attributs.end() &&
-				attributs.find("manaMax") != attributs.end()) {
-
+		std::string  guardian("guardian");
+		if (personnages.find(guardian) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[guardian];
 				int pvMax = attributs["pvMax"];
 				int attackMax = attributs["attackMax"];
 				int attack = attributs["attack"];
@@ -206,44 +175,40 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 				int defense = attributs["defense"];
 				int manaMax = attributs["manaMax"];
 
-				combattants.push_back({ "Gardien", PlayerGuardian(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+				combattants.push_back(new TypeCombattantClass{ "Gardien", PlayerGuardian(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
 
-			}
+			
 		}
+		do {
+			std::cout << namePlayer << ", choisissez un type de combattant : " << std::endl;
+			int index = 1;
+			for (const TypeCombattantClass* combattant : combattants) {
+				std::cout << index << "." << combattant->name << std::endl;
+				index++;
+			}
 
+			std::cin >> chosenType;
+			index = 1;
+			for (const TypeCombattantClass* combattant : combattants) {
+				if (chosenType == combattant->name || chosenType == std::to_string(index)) {
+					std::this_thread::sleep_for(std::chrono::seconds(1));
+					system("cls");
+					return combattant->type;
+				}
+				index++;
+			}
+			std::cout << "Saisie invalide. Reessayez." << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			system("cls");
+		} while (true);
+		std::this_thread::sleep_for(std::chrono::seconds(2));
+		system("cls");
 		fichier.close();
 	}
 	else {
 		std::cerr << "Impossible d'ouvrir le fichier " << classFile << std::endl;
 	}
-
-
-
-	do {
-		std::cout << namePlayer << ", choisissez un type de combattant : " << std::endl;
-		int index = 1;
-		for (const TypeCombattantClass combattant : combattants) {
-			std::cout << index << "." << combattant.name << std::endl;
-			index++;
-		}
-
-		std::cin >> chosenType;
-		index = 1;
-		for (const TypeCombattantClass combattant : combattants) {
-			if (chosenType == combattant.name || chosenType == std::to_string(index)) {
-				std::this_thread::sleep_for(std::chrono::seconds(1));
-				system("cls");
-				return combattant.type;
-			}
-			index++;
-		}
-		std::cout << "Saisie invalide. Reessayez." << std::endl;
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		system("cls");
-	} while (true);
-	std::this_thread::sleep_for(std::chrono::seconds(2));
-	system("cls");
 }
 
 std::string GameLoop::askAction(std::vector<std::string> actions) {
