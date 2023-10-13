@@ -5,8 +5,9 @@ class Spell
 {
 public:
 
-	Spell(const std::string name, int damage, int mana_needed);
+	Spell(const std::string type, const std::string name, int damage, int mana_needed);
 
+	const std::string getType();
 	const std::string getName();
 
 	int getDamage();
@@ -18,7 +19,7 @@ public:
 	~Spell();
 
 private:
-
+	std::string type;
 	std::string name;
 	int damage;
 	int mana_needed;

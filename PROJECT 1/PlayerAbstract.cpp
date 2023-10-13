@@ -102,11 +102,13 @@ void PlayerAbstract::afficherInfos() {
 
 void PlayerAbstract::getDamage(int damage)
 {
+	std::cout << "Joueur subi " << (damage - (defense / 100 * damage)) << " degats." << std::endl;
 	pv -= (damage - (defense / 100 * damage));
 }
 
 void PlayerAbstract::getHealth(int health)
 {
+	std::cout << "Joueur a gagne " << health << " pv." << std::endl;
 	pv += health;
 }
 
@@ -114,12 +116,19 @@ void PlayerAbstract::callUsedSpell(Spell usedSpell) {
 	std::cout << "Joueur " << name << " a utiliser le sort " << usedSpell.getName() << "." << std::endl;
 }
 
+std::vector<Object*> PlayerAbstract::getInventory() {
+	return inventory;
+}
+
+Object* PlayerAbstract::getObjectByName(std::string name) {
+	for (Object* object : inventory) {
+		if (object->getName() == name) return object;
+	}
+	return nullptr;
+}
+
 std::string PlayerAbstract::getPlayerType() {
 	return typePlayer;
-}
-void PlayerAbstract::addSpellToList() {
-	Spell spellOffensif("yayaya", attack, 0);
-	spellList.push_back(spellOffensif);
 }
 
 

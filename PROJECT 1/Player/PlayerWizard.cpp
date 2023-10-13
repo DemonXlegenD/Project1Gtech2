@@ -33,3 +33,4 @@ const std::vector<std::string> actions = {
 	"Attack Buff",
 	"Surrend",
 };
+
