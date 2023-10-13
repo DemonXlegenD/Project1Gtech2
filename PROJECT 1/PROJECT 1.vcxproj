@@ -130,7 +130,6 @@
     <ClCompile Include="Actions.cpp" />
     <ClCompile Include="GameConfig.cpp" />
     <ClCompile Include="GameLoop.cpp" />
-    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Utils\Loading.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PlayerAbstract.cpp" />
