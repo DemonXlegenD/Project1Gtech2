@@ -190,7 +190,10 @@ int main()
 					players[0].setActualPv(0);
 					break;
 				}
-
+				else if (action == actions[2]) {
+					std::cout << "invenaire vide, retour au menu" << std::endl;
+				}
+				system("cls");
 			} while (true);
 			players[0].afficherInfos();
 			players[1].afficherInfos();
@@ -233,6 +236,10 @@ int main()
 					players[1].setActualPv(0);
 					break;
 				}
+				else if (action == actions[2]) {
+					std::cout << "invenaire vide, retour au menu" << std::endl;
+				}
+				system("cls");
 			} while (true);
 			players[0].afficherInfos();
 			players[1].afficherInfos();

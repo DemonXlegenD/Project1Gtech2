@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
 #include "PlayerAbstract.h"
 #include <vector>
