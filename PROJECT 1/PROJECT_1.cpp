@@ -98,7 +98,7 @@ int main()
 
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 	SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN | FOREGROUND_INTENSITY); // Change la couleur du texte en vert vif
-	std::string texteIntro = "Ce jeu est un crash course et donc n'est pas totalement termine...";
+	std::string texteIntro = "Ce jeu est un crash test et donc n'est pas totalement termine...";
 	int delai = 100; // Délai en millisecondes (100 ms = 0,1 seconde)
 
 	for (char c : texteIntro) {

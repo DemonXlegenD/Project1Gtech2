@@ -86,126 +86,136 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 	std::string classFile = "./Data/Class.txt";
 	std::ifstream fichier(classFile);
 	std::string chosenType;
-	std::vector<TypeCombattantClass> combattants;
-	int pvMax;
-	int attackMax;
-	int attack;
-	int defenseMax;
-	int defense;
-	int manaMax;
+	std::vector<TypeCombattantClass*> combattants;
 
 	if (fichier.is_open()) {
-		std::string ligne;
 		std::string categorieActuelle;
 
+		std::map<std::string, std::map<std::string, int>> personnages;
+
+		std::string ligne;
+		std::string personnage_actuel;
 		while (std::getline(fichier, ligne)) {
-			if (ligne.find("[wizard]") != std::string::npos) {
-				std::istringstream flux(ligne);
-				std::string cle;
-				int valeur;
-
-				if (flux >> cle >> valeur) {
-					if (cle == "pvMax") pvMax = valeur;
-					else if (cle == "attackMax")attackMax = valeur;
-					else if (cle == "attack")attack = valeur;
-					else if (cle == "defenseMax")defenseMax = valeur;
-					else if (cle == "defense") defense = valeur;
-					else if (cle == "manaMax") manaMax = valeur;
-
-				}
-				combattants.push_back({ "Magicien", PlayerWizard(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
-			}
-			else if (ligne.find("[warrior]") != std::string::npos) {
-				std::istringstream flux(ligne);
-				std::string cle;
-				int valeur;
-
-				if (flux >> cle >> valeur) {
-					if (cle == "pvMax") pvMax = valeur;
-					else if (cle == "attackMax")attackMax = valeur;
-					else if (cle == "attack")attack = valeur;
-					else if (cle == "defenseMax")defenseMax = valeur;
-					else if (cle == "defense") defense = valeur;
-					else if (cle == "manaMax") manaMax = valeur;
-
-				}
-				combattants.push_back({ "Guerrier", PlayerWarrior(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
-			}
-			else if (ligne.find("[knight]") != std::string::npos) {
-				std::istringstream flux(ligne);
-				std::string cle;
-				int valeur;
-
-				if (flux >> cle >> valeur) {
-					if (cle == "pvMax") pvMax = valeur;
-					else if (cle == "attackMax")attackMax = valeur;
-					else if (cle == "attack")attack = valeur;
-					else if (cle == "defenseMax")defenseMax = valeur;
-					else if (cle == "defense") defense = valeur;
-					else if (cle == "manaMax") manaMax = valeur;
-
-				}
-				combattants.push_back({ "Chevalier", PlayerKnight(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
-			}
-			else if (ligne.find("[guardian]") != std::string::npos) {
-				std::istringstream flux(ligne);
-				std::string cle;
-				int valeur;
-
-				if (flux >> cle >> valeur) {
-					if (cle == "pvMax") pvMax = valeur;
-					else if (cle == "attackMax")attackMax = valeur;
-					else if (cle == "attack")attack = valeur;
-					else if (cle == "defenseMax")defenseMax = valeur;
-					else if (cle == "defense") defense = valeur;
-					else if (cle == "manaMax") manaMax = valeur;
-
-				}
-				combattants.push_back({ "Gardien", PlayerGuardian(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+			if (ligne.empty()) {
+				continue; // Ignorez les lignes vides.
 			}
 
+			if (ligne[0] == '[' && ligne[ligne.length() - 1] == ']') {
+				// Il s'agit d'une ligne définissant un nouveau personnage.
+				personnage_actuel = ligne.substr(1, ligne.length() - 2);
+				personnages[personnage_actuel] = std::map<std::string, int>();
+			}
+			else {
+				size_t pos = ligne.find(":");
+				if (pos != std::string::npos) {
+					std::string attribut = ligne.substr(0, pos);
+					int valeur = std::stoi(ligne.substr(pos + 1));
+					personnages[personnage_actuel][attribut] = valeur;
+				}
+				/*1H Merci Victor*/
+			}
+		}
+		std::cout << personnages["wizard"]["pvMax"];
+
+		std::string wizard("wizard");
+		if (personnages.find(wizard) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[wizard];
+				int pvMax = attributs["pvMax"];
+				int attackMax = attributs["attackMax"];
+				int attack = attributs["attack"];
+				int defenseMax = attributs["defenseMax"];
+				int defense = attributs["defense"];
+				int manaMax = attributs["manaMax"];
+
+				std::cout << "pvmax" << pvMax;
+
+				combattants.push_back(new TypeCombattantClass{ "Magicien", PlayerWizard(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+
+			
 		}
 
+		std::string  warrior("warrior");
+		if (personnages.find(warrior) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[warrior];
+				int pvMax = attributs["pvMax"];
+				int attackMax = attributs["attackMax"];
+				int attack = attributs["attack"];
+				int defenseMax = attributs["defenseMax"];
+				int defense = attributs["defense"];
+				int manaMax = attributs["manaMax"];
+
+				combattants.push_back(new TypeCombattantClass{ "Guerrier", PlayerWarrior(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+
+			
+		}
+
+
+		std::string  knight("knight");
+		if (personnages.find(knight) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[knight];
+				int pvMax = attributs["pvMax"];
+				int attackMax = attributs["attackMax"];
+				int attack = attributs["attack"];
+				int defenseMax = attributs["defenseMax"];
+				int defense = attributs["defense"];
+				int manaMax = attributs["manaMax"];
+
+				combattants.push_back(new TypeCombattantClass{ "Chevalier", PlayerKnight(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+
+			
+		}
+
+		std::string  guardian("guardian");
+		if (personnages.find(guardian) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[guardian];
+				int pvMax = attributs["pvMax"];
+				int attackMax = attributs["attackMax"];
+				int attack = attributs["attack"];
+				int defenseMax = attributs["defenseMax"];
+				int defense = attributs["defense"];
+				int manaMax = attributs["manaMax"];
+
+				combattants.push_back(new TypeCombattantClass{ "Gardien", PlayerGuardian(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+
+			
+		}
+		do {
+			std::cout << namePlayer << ", choisissez un type de combattant : " << std::endl;
+			int index = 1;
+			for (const TypeCombattantClass* combattant : combattants) {
+				std::cout << index << "." << combattant->name << std::endl;
+				index++;
+			}
+
+			std::cin >> chosenType;
+			index = 1;
+			for (const TypeCombattantClass* combattant : combattants) {
+				if (chosenType == combattant->name || chosenType == std::to_string(index)) {
+					std::this_thread::sleep_for(std::chrono::seconds(1));
+					system("cls");
+					return combattant->type;
+				}
+				index++;
+			}
+			std::cout << "Saisie invalide. Reessayez." << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			system("cls");
+		} while (true);
+		std::this_thread::sleep_for(std::chrono::seconds(2));
+		system("cls");
 		fichier.close();
 	}
 	else {
 		std::cerr << "Impossible d'ouvrir le fichier " << classFile << std::endl;
 	}
-
-
-
-	do {
-		std::cout << namePlayer << ", choisissez un type de combattant : " << std::endl;
-		int index = 1;
-		for (const TypeCombattantClass combattant : combattants) {
-			std::cout << index << "." << combattant.name << std::endl;
-			index++;
-		}
-
-		std::cin >> chosenType;
-		index = 1;
-		for (const TypeCombattantClass combattant : combattants) {
-			if (chosenType == combattant.name || chosenType == std::to_string(index)) {
-				std::this_thread::sleep_for(std::chrono::seconds(1));
-				system("cls");
-				return combattant.type;
-			}
-			index++;
-		}
-		std::cout << "Saisie invalide. Reessayez." << std::endl;
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		system("cls");
-	} while (true);
-	std::this_thread::sleep_for(std::chrono::seconds(2));
-	system("cls");
 }
 
 std::string GameLoop::askAction(std::vector<std::string> actions) {
 	std::string chosenAction;
 
 	do {
-		
+
 		std::cout << "Choisissez une action: " << std::endl;
 		int index = 1;
 		for (const std::string action : actions) {
