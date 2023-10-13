@@ -22,11 +22,3 @@ PlayerKnight::PlayerKnight(
 ) {
 	archetype = knight;
 }
-
-
-
-
-int PlayerKnight::useAvadacadavra() {
-
-	return attack * 2;
-}

@@ -127,9 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actions.cpp" />
     <ClCompile Include="GameConfig.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="Utils\Loading.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="PlayerAbstract.cpp" />
     <ClCompile Include="Player\PlayerWarrior.cpp" />
     <ClCompile Include="Player\PlayerKnight.cpp" />
@@ -141,9 +144,12 @@
     <ClCompile Include="Team.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actions.h" />
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="Utils\Loading.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="PlayerAbstract.h" />
     <ClInclude Include="Player\PlayerWarrior.h" />
     <ClInclude Include="Player\PlayerKnight.h" />

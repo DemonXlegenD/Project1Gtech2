@@ -34,32 +34,3 @@ const std::vector<std::string> actions = {
 	"Surrend",
 };
 
-int PlayerWizard::useAvadacadavra() {
-
-	return attack * 2;
-}
-
-void PlayerWizard::useManaShield() {
-	std::cout << "Mana shield Used\n";
-}
-
-void PlayerWizard::useAtkBuff() {
-	std::cout << "Attack Buffed\n";
-}
-
-void PlayerWizard::useAtkDebuff() {
-	std::cout << "Ennemy Attack Debuffed\n";
-}
-
-void PlayerWizard::surrender() {
-	std::cout << "You have surrendered the fight\n";
-}
-
-void PlayerWizard::useActions(int index) {
-	if (index >= 0 && index < actions.size()) {
-		std::cout << actions[index] << " est ex�cut�e" << std::endl;
-	}
-	else {
-		std::cout << "Indice d'action invalide." << std::endl;
-	}
-}
