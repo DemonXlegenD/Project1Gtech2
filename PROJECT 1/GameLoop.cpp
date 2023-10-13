@@ -87,83 +87,128 @@ PlayerAbstract GameLoop::askType(std::string idPlayer, std::string namePlayer) {
 	std::ifstream fichier(classFile);
 	std::string chosenType;
 	std::vector<TypeCombattantClass> combattants;
-	int pvMax;
-	int attackMax;
-	int attack;
-	int defenseMax;
-	int defense;
-	int manaMax;
 
 	if (fichier.is_open()) {
-		std::string ligne;
 		std::string categorieActuelle;
 
+		std::map<std::string, std::map<std::string, int>> personnages; // Utilisez une map pour stocker les personnages et leurs attributs.
+
+		std::string ligne;
+		std::string personnage_actuel;
 		while (std::getline(fichier, ligne)) {
-			if (ligne.find("[wizard]") != std::string::npos) {
-				std::istringstream flux(ligne);
-				std::string cle;
-				int valeur;
+			if (ligne.empty()) {
+				continue; // Ignorez les lignes vides.
+			}
 
-				if (flux >> cle >> valeur) {
-					if (cle == "pvMax") pvMax = valeur;
-					else if (cle == "attackMax")attackMax = valeur;
-					else if (cle == "attack")attack = valeur;
-					else if (cle == "defenseMax")defenseMax = valeur;
-					else if (cle == "defense") defense = valeur;
-					else if (cle == "manaMax") manaMax = valeur;
-
+			if (ligne[0] == '[' && ligne[ligne.length() - 1] == ']') {
+				// Il s'agit d'une ligne définissant un nouveau personnage.
+				personnage_actuel = ligne.substr(1, ligne.length() - 2);
+				personnages[personnage_actuel] = std::map<std::string, int>();
+			}
+			else {
+				size_t pos = ligne.find(":");
+				if (pos != std::string::npos) {
+					std::string attribut = ligne.substr(0, pos);
+					int valeur = std::stoi(ligne.substr(pos + 1));
+					personnages[personnage_actuel][attribut] = valeur;
 				}
+			}
+		}
+
+
+		std::string personnage = "wizard";
+		if (personnages.find(personnage) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[personnage];
+			std::cout << "[" << personnage << "]" << std::endl;
+			if (attributs.find("pvMax") != attributs.end() &&
+				attributs.find("attackMax") != attributs.end() &&
+				attributs.find("attack") != attributs.end() &&
+				attributs.find("defenseMax") != attributs.end() &&
+				attributs.find("defense") != attributs.end() &&
+				attributs.find("manaMax") != attributs.end()) {
+
+				int pvMax = attributs["pvMax"];
+				int attackMax = attributs["attackMax"];
+				int attack = attributs["attack"];
+				int defenseMax = attributs["defenseMax"];
+				int defense = attributs["defense"];
+				int manaMax = attributs["manaMax"];
+
+				std::cout << "pvmax" << pvMax;
+
 				combattants.push_back({ "Magicien", PlayerWizard(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+
 			}
-			else if (ligne.find("[warrior]") != std::string::npos) {
-				std::istringstream flux(ligne);
-				std::string cle;
-				int valeur;
+		}
 
-				if (flux >> cle >> valeur) {
-					if (cle == "pvMax") pvMax = valeur;
-					else if (cle == "attackMax")attackMax = valeur;
-					else if (cle == "attack")attack = valeur;
-					else if (cle == "defenseMax")defenseMax = valeur;
-					else if (cle == "defense") defense = valeur;
-					else if (cle == "manaMax") manaMax = valeur;
+		personnage = "warrior";
+		if (personnages.find(personnage) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[personnage];
+			std::cout << "[" << personnage << "]" << std::endl;
+			if (attributs.find("pvMax") != attributs.end() &&
+				attributs.find("attackMax") != attributs.end() &&
+				attributs.find("attack") != attributs.end() &&
+				attributs.find("defenseMax") != attributs.end() &&
+				attributs.find("defense") != attributs.end() &&
+				attributs.find("manaMax") != attributs.end()) {
 
-				}
+				int pvMax = attributs["pvMax"];
+				int attackMax = attributs["attackMax"];
+				int attack = attributs["attack"];
+				int defenseMax = attributs["defenseMax"];
+				int defense = attributs["defense"];
+				int manaMax = attributs["manaMax"];
+
 				combattants.push_back({ "Guerrier", PlayerWarrior(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+
 			}
-			else if (ligne.find("[knight]") != std::string::npos) {
-				std::istringstream flux(ligne);
-				std::string cle;
-				int valeur;
+		}
 
-				if (flux >> cle >> valeur) {
-					if (cle == "pvMax") pvMax = valeur;
-					else if (cle == "attackMax")attackMax = valeur;
-					else if (cle == "attack")attack = valeur;
-					else if (cle == "defenseMax")defenseMax = valeur;
-					else if (cle == "defense") defense = valeur;
-					else if (cle == "manaMax") manaMax = valeur;
 
-				}
+		personnage = "knight";
+		if (personnages.find(personnage) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[personnage];
+			std::cout << "[" << personnage << "]" << std::endl;
+			if (attributs.find("pvMax") != attributs.end() &&
+				attributs.find("attackMax") != attributs.end() &&
+				attributs.find("attack") != attributs.end() &&
+				attributs.find("defenseMax") != attributs.end() &&
+				attributs.find("defense") != attributs.end() &&
+				attributs.find("manaMax") != attributs.end()) {
+
+				int pvMax = attributs["pvMax"];
+				int attackMax = attributs["attackMax"];
+				int attack = attributs["attack"];
+				int defenseMax = attributs["defenseMax"];
+				int defense = attributs["defense"];
+				int manaMax = attributs["manaMax"];
+
 				combattants.push_back({ "Chevalier", PlayerKnight(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
+
 			}
-			else if (ligne.find("[guardian]") != std::string::npos) {
-				std::istringstream flux(ligne);
-				std::string cle;
-				int valeur;
+		}
 
-				if (flux >> cle >> valeur) {
-					if (cle == "pvMax") pvMax = valeur;
-					else if (cle == "attackMax")attackMax = valeur;
-					else if (cle == "attack")attack = valeur;
-					else if (cle == "defenseMax")defenseMax = valeur;
-					else if (cle == "defense") defense = valeur;
-					else if (cle == "manaMax") manaMax = valeur;
+		personnage = "guardian";
+		if (personnages.find(personnage) != personnages.end()) {
+			std::map<std::string, int>& attributs = personnages[personnage];
+			std::cout << "[" << personnage << "]" << std::endl;
+			if (attributs.find("pvMax") != attributs.end() &&
+				attributs.find("attackMax") != attributs.end() &&
+				attributs.find("attack") != attributs.end() &&
+				attributs.find("defenseMax") != attributs.end() &&
+				attributs.find("defense") != attributs.end() &&
+				attributs.find("manaMax") != attributs.end()) {
 
-				}
+				int pvMax = attributs["pvMax"];
+				int attackMax = attributs["attackMax"];
+				int attack = attributs["attack"];
+				int defenseMax = attributs["defenseMax"];
+				int defense = attributs["defense"];
+				int manaMax = attributs["manaMax"];
+
 				combattants.push_back({ "Gardien", PlayerGuardian(idPlayer, namePlayer, pvMax, attackMax, attack, defenseMax, defense, manaMax) });
-			}
 
+			}
 		}
 
 		fichier.close();
@@ -205,7 +250,7 @@ std::string GameLoop::askAction(std::vector<std::string> actions) {
 	std::string chosenAction;
 
 	do {
-		
+
 		std::cout << "Choisissez une action: " << std::endl;
 		int index = 1;
 		for (const std::string action : actions) {

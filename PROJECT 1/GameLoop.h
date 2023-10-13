@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <map>
 #include "PlayerAbstract.h"
 #include <vector>
 #include <thread>
