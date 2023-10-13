@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Spell.h"
 #include <vector>
+#include "Object.h"
 
 class PlayerAbstract
 { 
@@ -10,7 +11,6 @@ public:
 	PlayerAbstract(
 		const std::string id,
 		const std::string name,
-
 		int pvMax,
 		int attackMax,
 		int attack,
@@ -19,7 +19,6 @@ public:
 		int manaMax,
 		std::string typePlayer
 	);
-	std::vector<Spell> spellList;
 
 	enum archetypeEnum {
 		wizard,
@@ -53,6 +52,9 @@ public:
 
 	void callUsedSpell(Spell usedSpell);
 
+	std::vector<Object*> getInventory();
+	Object* getObjectByName(std::string name);
+
 	void getArchetype() {
 
 	}
@@ -60,7 +62,16 @@ public:
 	std::string getPlayerType();
 
 
-	virtual void addSpellToList();
+	virtual void addSpellToList() {
+			Spell spellOffensif("offensive", "yayaya", attack, 0);
+			Spell spellDefensif("defensive", "yoyoyo", defense, 0);
+			Spell spellBuff("buff", "yiyiyi", attack, 0);
+			Spell spellUltimate("ultimate", "yuyuyu", 2, 0);
+			spellList.push_back(spellOffensif);
+			spellList.push_back(spellDefensif);
+			spellList.push_back(spellBuff);
+			spellList.push_back(spellUltimate);
+	}
 
 	std::vector<Spell> getSpellList() const {
 		return spellList;
@@ -73,6 +84,7 @@ public:
 
 protected:
 
+	std::vector<Spell> spellList;
 	std::string id;
 
 
@@ -94,6 +106,8 @@ protected:
 
 	std::string name;
 	std::string typePlayer;
+
+	std::vector<Object*> inventory;
 
 	archetypeEnum archetype;
 };

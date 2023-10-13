@@ -2,9 +2,13 @@
 #include "Spell.h"
 
 
-Spell::Spell(std::string name, int damage, int mana) : name(name), damage(damage), mana_needed(mana) {}
+Spell::Spell(const std::string type, std::string name, int damage, int mana) : type(type), name(name), damage(damage), mana_needed(mana) {}
 
-const std::string Spell::getName(){
+const std::string Spell::getType(){
+	return type;
+}
+
+const std::string Spell::getName() {
 	return name;
 }
 
