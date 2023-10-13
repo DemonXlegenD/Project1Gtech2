@@ -6,6 +6,7 @@
 #include <thread>
 #include <chrono>
 #include <string>
+#include <iomanip>
 
 #include "PlayerAbstract.h"
 #include "./Player/PlayerWizard.h"
@@ -15,10 +16,54 @@
 #include "Object.h"
 #include "./Utils/Loading.h"
 
+// Fonction pour afficher un cadre de longueur donnée avec "|"
+void afficherCadreCote(int hauteur) {
+	for (int i = 0; i < hauteur; i++) {
+		std::cout << "|" << std::setw(78) << "|" << std::endl;
+	}
+}
 
+// Fonction pour afficher un cadre de longueur donnée avec "-"
+void afficherCadreHautBas(int longueur) {
+	for (int i = 0; i < longueur; i++) {
+		std::cout << "-";
+	}
+	std::cout << std::endl;
+}
+
+// Fonction pour afficher les statistiques du joueur
+void afficherStatsJoueur(int pv, int attaque, int defense, int playerNbr) {
+	if (playerNbr == 1) {
+		std::cout << "| PV: " << std::left << std::setw(73) << pv << "|" << std::endl;
+		std::cout << "| Attaque: " << std::left << std::setw(68) << attaque << "|" << std::endl;
+		std::cout << "| Defense: " << std::left << std::setw(68) << defense << "|" << std::endl;
+	}
+	else {
+		std::cout << "|" << std::right << std::setw(75) << "PV: " << pv << "| " << std::endl;
+		std::cout << "|" << std::right << std::setw(76) << "Attaque: "<< attaque << "| " << std::endl;
+		std::cout << "|" << std::right << std::setw(75) << "Defense: "<< defense << "| " << std::endl;
+	}
+}
+
+// Fonction pour afficher les actions disponibles
+void afficherActions(const std::string& actions) {
+	afficherCadreCote(2);
+	std::cout << "| Actions disponibles :               |" << std::endl;
+	std::cout << "|" << std::left << std::setw(78) << actions << "|" << std::endl;
+	afficherCadreCote(2);
+}
+
+// Fonction pour afficher les logs de combat
+void afficherLogsDeCombat(const std::string& logs) {
+	afficherCadreCote(2);
+	std::cout << "| Logs de combat :                   |" << std::endl;
+	std::cout << "|" << std::left << std::setw(78) << logs << "|" << std::endl;
+	afficherCadreCote(2);
+}
 
 int main()
 {
+
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY); // Change la couleur du texte en rouge vif
 

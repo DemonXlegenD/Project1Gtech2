@@ -131,4 +131,6 @@ std::string PlayerAbstract::getPlayerType() {
 	return typePlayer;
 }
 
+
+
 PlayerAbstract::~PlayerAbstract() {}

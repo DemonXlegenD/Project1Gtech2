@@ -1,0 +1,31 @@
+[wizard]
+ pvMax : 100
+ attackMax : 80
+ attack : 50
+ defenseMax : 40
+ defense : 15
+ manaMax : 500
+ 
+[warrior]
+ pvMax : 200
+ attackMax : 100
+ attack : 40
+ defenseMax : 45
+ defense : 25
+ manaMax : 150
+
+[knight]
+ pvMax : 200
+ attackMax : 70
+ attack : 35
+ defenseMax : 70
+ defense : 35
+ manaMax : 250
+
+[guardian]
+ pvMax : 300
+ attackMax : 50
+ attack : 30
+ defenseMax : 90
+ defense : 60
+ manaMax : 150

@@ -1,11 +1,13 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include "Spell.h"
 #include <vector>
+
 #include "Object.h"
 
 class PlayerAbstract
-{ 
+{
 public:
 
 	PlayerAbstract(
